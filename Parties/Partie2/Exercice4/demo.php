@@ -38,9 +38,9 @@ if (isset($_POST["submit"])) {
     <hr>
     <form action="" method="post">
         <label class="form-label">TXT :</label>
-        <input type="text" name="txt" id="" class="form-control w-50">
+        <input type="text" name="txt" id="" class="form-control w-50" value="<?= $_POST['txt']??'' ?>">
         <label class="form-label">i:</label>
-        <input type="text" name="i" id="" class="form-control w-50">
+        <input type="text" name="i" id="" class="form-control w-50" value="<?= $_POST['i']??'' ?>">
         <label class="form-label"> RES :</label>
         <input type="text" name="" id="" readonly class="form-control w-50" value="<?php echo $res[1] ?>">
         <label class="form-label">nbr</label>

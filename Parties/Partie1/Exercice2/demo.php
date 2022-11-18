@@ -13,18 +13,17 @@
         }
     </style>
 </head>
-
 <body>
-
     <div class="exe3">
         <h2>Exercice 2</h2>
         <hr>
-
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <label class="form-label">Temperature: </label><input type="number" name="textmp" min='-50' max='50' class="form-control w-50" />
-            <!-- <label class="form-label">Ville: </label><input type="text" name="textv" class="form-control w-50" /> -->
-            <br><label class="form-label">Ville: </label><br>
-            <select name="nameville" id="" class="form-select w-50">
+            <label class="form-label">Temperature: </label>
+            <input type="number" name="textmp" min='-50' max='50' class="form-control w-50" value="<?php echo($_POST['textmp'])??''; ?>"/>
+            <br>
+            <label class="form-label">Ville: </label>
+            <br>
+            <select name="nameville" id="" class="form-select w-50" >
                 <?php
                 $villes = array(
                     'Al-Hoceima', 'Chefchaouen', 'Fahs-Anjra',
@@ -42,7 +41,7 @@
                     'Oued-Ed-Dahab'
                 );
                 for ($i = 0; $i < count($villes); $i++) {
-                    echo '<option value=' . $villes[$i] . '>' . $villes[$i] .
+                    echo '<option '.( $_POST["nameville"]==$villes[$i]?"selected":"" ).' value=' . $villes[$i] . ' >' . $villes[$i] .
                         '</option>';
                 }
                 ?>
@@ -76,7 +75,7 @@
             print "<td>$arrT[$i]</td>";
             switch ($i) {
                 case 0:
-                    if ($temp >= 30 && $temp <= 50) {
+                    if ($temp >= 33 && $temp <= 50) {
                         print "<td style='color:$arrC[$i]'>$ville</td>";
                     } else print "<td></td>";
                     break;

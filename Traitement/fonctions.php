@@ -33,3 +33,32 @@ function Entier($txt, $i)
         $ch = "0";
     return [$c, $ch];
 }
+
+//Exercice 5 Partie 2
+function CodageRLE($TXT){
+    $indice=0;
+    $NewTxt="";
+    while ($indice<strlen($TXT)){
+        $repetition=Rpetition($TXT,$indice);
+        $NewTxt=$NewTxt.$repetition.$TXT[$indice];
+        $indice=$indice+$repetition;
+    }
+    return $NewTxt;
+
+}
+
+//Exercice 6 Partie 2
+function DecodageRLE($TXT){
+        $indice=0;
+        $NewTxt="";
+        while ($indice<strlen($TXT)){
+            $res=Entier($TXT,$indice);
+            for ($i=0;$i<$res[1];$i++){
+                $NewTxt.=$TXT[$indice+$res[0]];
+            }
+            $indice=$indice+$res[0]+1;
+        }
+        return $NewTxt;
+    }
+
+?>

@@ -27,8 +27,10 @@ include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
         <h2>Exercice 1</h2>
         <hr>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <label class="form-label"> Nom: </label><input type="text" name="nom" class="form-control w-50" />
-            <label class="form-label"> Prenom:</label> <input type="text" name="prenom" class="form-control w-50" />
+            <label class="form-label"> Nom: </label>
+            <input type="text" name="nom" class="form-control w-50" value="<?= $_POST['nom']??'' ?>"/>
+            <label class="form-label"> Prenom:</label>
+            <input type="text" name="prenom" class="form-control w-50" value="<?= $_POST['prenom']??'' ?>"/>
             <input type="submit" value="submit" name="submit" class="btn btn-primary mt-4"><br><br>
             <label class="form-label"><b>Nom Complet : </b> </label>
             <label type="text" class="form-label"><?php echo $nomComplet; ?></label>

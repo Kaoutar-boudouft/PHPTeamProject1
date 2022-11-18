@@ -574,7 +574,7 @@
     </div>
     <div class="navLinks">
       <ul>
-        <a title="La base" href="basictemp.php?nbr=2&&partie=1&&ex=1" class="navLink">
+        <a title="La base" href="basictemp.php?nbr=2&&partie=1&&ex=1" class="navLink active">
           <li>
             Partie 1
           </li>
@@ -616,11 +616,11 @@
 
                     $nbr = $_GET["nbr"] ?? 2;
                     $partie = $_GET["partie"] ?? 1;
-                    //$ex = $_GET["ex"] ?? 1;
+                    $ex = $_GET["ex"] ?? 1;
 
                     for ($i = 1; $i <= $nbr; $i++) {
 
-                      echo ('<a href="basictemp.php?nbr=' . $nbr . '&&partie=' . $partie . '&&ex=' . $i . '" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded ' . ($i == 1 ? "active" : "") . ' ">
+                      echo ('<a href="basictemp.php?nbr=' . $nbr . '&&partie=' . $partie . '&&ex=' . $i . '" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded ' . ($i == $ex ? "active" : "") . ' ">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2">
                             <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                             <line x1="1" y1="10" x2="23" y2="10"></line>
@@ -639,43 +639,20 @@
         <div class="card right-profile-card">
           <div class="card-header alert-primary">
             <ul class="nav nav-pills" id="pills-tab" role="tablist">
-              <li class="nav-item">
                 <?php
-                if (isset($_GET["nbr"])) {
-                  $nbr = $_GET["nbr"] ?? 2;
-                  $partie = $_GET["partie"] ?? 1;
-                  $ex = $_GET["ex"] ?? 1;
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=enonce&&partie=' . $partie . '&&ex=' . $ex . '" role="tab" aria-selected="true">Enoncé</a>';
-                } else {
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=enonce&&ex=1" role="tab" aria-selected="true">Enoncé</a>';
+                $nbr = $_GET["nbr"] ?? 2;
+                $partie = $_GET["partie"] ?? 1;
+                $ex = $_GET["ex"] ?? 1;
+                $type=$_GET['type']??"enonce";
+                $array=array("enonce"=>"Enoncé","demo"=>"Demo","codesource"=>"Code Source");
+                foreach ($array as $key => $value){
+                    echo ('<li class="nav-item">');
+                    echo ('<a class="nav-link '.($type==$key?"active":"").'" id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type='.$key.'&&partie=' . $partie . '&&ex=' . $ex . '" role="tab" aria-selected="true">'.$value.'</a>');
+                    echo ' </li>';
                 }
-                ?>
+              ?>
 
-              </li>
-              <li class="nav-item">
-                <?php
-                if (isset($_GET["nbr"])) {
-                  $nbr = $_GET["nbr"] ?? 2;
-                  $partie = $_GET["partie"] ?? 1;
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=demo&&partie=' . $partie . '&&ex=' . $ex . '" role="tab" aria-selected="true">Demo</a>';
-                } else {
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=demo&&ex=1" role="tab" aria-selected="true">Demo</a>';
-                }
-                ?>
 
-              </li>
-              <li class="nav-item">
-                <?php
-                if (isset($_GET["nbr"])) {
-                  $nbr = $_GET["nbr"] ?? 2;
-                  $partie = $_GET["partie"] ?? 1;
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=codesource&&partie=' . $partie . '&&ex=' . $ex . '" role="tab" aria-selected="true">Code source</a>';
-                } else {
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=codesource&&ex=1" role="tab" aria-selected="true">Code source</a>';
-                }
-                ?>
-
-              </li>
             </ul>
           </div>
           <div class="card-body">
@@ -689,11 +666,8 @@
                     $type = $_GET["type"] ?? 'enonce';
                     $partie = $_GET["partie"] ?? 1;
                     $ex = $_GET["ex"] ?? 1;
-                    echo "<iframe src='Parties\Partie" . $partie . "\Exercice" . $ex . "\\" . $type . ".php' width='100%' height='300px'></iframe>";
-
+                    echo "<iframe src='Parties\Partie" . $partie . "\Exercice" . $ex . "\\" . $type . ".php' width='100%' height='350px'></iframe>";
                     ?>
-
-                    <!-- <pre><ol><li>var isPrime = function(num) {</li><li>  var prime = num > 1;</li><li>  for(var i = 2; i < num; ++i) {</li><li>    if(num % i == 0) {</li><li>      prime = false;</li><li>      break;</li><li>    }</li><li>  }</li><li>  return prime;</li><li>}</li></ol></pre> -->
                   </div>
                 </div>
               </div>
