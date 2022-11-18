@@ -14,14 +14,10 @@
     <div class="p-2">
         <h1>Exercice 1</h1>
         <hr>
-        <p>Considérons les variables <b>$Licences = 3 ; $Masters = 2 ;</b>
-            Afficher, à l’aide d’une seule instruction PHP, la phrase suivante :
-            <br>
-            J’ai 3 Licences et 2 Masters, j’ai donc 5 <b>formations</b>.<br>
-            Les nombres 3, 2 et 5 dépendent des valeurs des variables données précédemment.
-            <br> Le faire
-            une fois en utilisant uniquement les apostrophes et une fois en utilisant uniquement les
-            guillemets.
+        <p>Ecrire une fonction<b>NomComplet</b> qui prend en paramètre deux chaines de caractères
+            à partir de deux zones de texte<b>Nom</b> et <b>Prenom</b> puis construit et retourne
+            une chaîne de caractères représentant le nom complet dans une troisième zone de
+            texte.
         </p>
 
 

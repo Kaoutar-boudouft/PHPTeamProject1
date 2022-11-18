@@ -9,9 +9,7 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/@icon/entypo@1.0.3/entypo.css" rel="stylesheet"> -->
+
   <style>
     * {
       margin: 0;
@@ -581,7 +579,7 @@
             Partie 1
           </li>
         </a>
-        <a title="Les fonctions" href="basictemp.php?nbr=6" class="navLink">
+        <a title="Les fonctions" href="basictemp.php?nbr=6&&partie=2&&ex=1" class="navLink">
           <li>
             Partie 2
           </li>
@@ -618,11 +616,11 @@
 
                     $nbr = $_GET["nbr"] ?? 2;
                     $partie = $_GET["partie"] ?? 1;
-                    $ex = $_GET["ex"] ?? 1;
+                    //$ex = $_GET["ex"] ?? 1;
 
                     for ($i = 1; $i <= $nbr; $i++) {
 
-                      echo ('<a href="basictemp.php?nbr=' . $nbr . '&&partie="' . $partie . '&&ex=' . $ex . ' data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded ' . ($i == 1 ? "active" : "") . ' ">
+                      echo ('<a href="basictemp.php?nbr=' . $nbr . '&&partie=' . $partie . '&&ex=' . $i . '" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded ' . ($i == 1 ? "active" : "") . ' ">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2">
                             <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                             <line x1="1" y1="10" x2="23" y2="10"></line>
@@ -646,9 +644,10 @@
                 if (isset($_GET["nbr"])) {
                   $nbr = $_GET["nbr"] ?? 2;
                   $partie = $_GET["partie"] ?? 1;
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=enonce&&partie=' . $partie . '" role="tab" aria-selected="true">Enoncé</a>';
+                  $ex = $_GET["ex"] ?? 1;
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=enonce&&partie=' . $partie . '&&ex=' . $ex . '" role="tab" aria-selected="true">Enoncé</a>';
                 } else {
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=enonce" role="tab" aria-selected="true">Enoncé</a>';
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=enonce&&ex=1" role="tab" aria-selected="true">Enoncé</a>';
                 }
                 ?>
 
@@ -658,9 +657,9 @@
                 if (isset($_GET["nbr"])) {
                   $nbr = $_GET["nbr"] ?? 2;
                   $partie = $_GET["partie"] ?? 1;
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=demo&&partie=' . $partie . '" role="tab" aria-selected="true">Demo</a>';
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=demo&&partie=' . $partie . '&&ex=' . $ex . '" role="tab" aria-selected="true">Demo</a>';
                 } else {
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=demo" role="tab" aria-selected="true">Demo</a>';
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=demo&&ex=1" role="tab" aria-selected="true">Demo</a>';
                 }
                 ?>
 
@@ -670,9 +669,9 @@
                 if (isset($_GET["nbr"])) {
                   $nbr = $_GET["nbr"] ?? 2;
                   $partie = $_GET["partie"] ?? 1;
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=codesource&&partie=' . $partie . '" role="tab" aria-selected="true">Code source</a>';
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=codesource&&partie=' . $partie . '&&ex=' . $ex . '" role="tab" aria-selected="true">Code source</a>';
                 } else {
-                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=codesource" role="tab" aria-selected="true">Code source</a>';
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=codesource&&ex=1" role="tab" aria-selected="true">Code source</a>';
                 }
                 ?>
 
@@ -690,7 +689,7 @@
                     $type = $_GET["type"] ?? 'enonce';
                     $partie = $_GET["partie"] ?? 1;
                     $ex = $_GET["ex"] ?? 1;
-                    echo "<iframe src='Parties\Partie" . $partie . "\Exercice" . $ex . "\\" . $type . ".php' width='100%'></iframe>";
+                    echo "<iframe src='Parties\Partie" . $partie . "\Exercice" . $ex . "\\" . $type . ".php' width='100%' height='300px'></iframe>";
 
                     ?>
 
