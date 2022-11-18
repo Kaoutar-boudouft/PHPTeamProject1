@@ -1,11 +1,14 @@
+<?php
+?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@icon/entypo@1.0.3/entypo.css" rel="stylesheet"> -->
@@ -37,7 +40,7 @@
       justify-content: space-between;
       align-items: center;
       background-color: #116EFA;
-      color:white;
+      color: white;
       position: fixed;
       top: 0;
       z-index: 1;
@@ -91,12 +94,15 @@
     #home {
       background-color: #cbf6ff;
     }
+
     #about {
       background-color: #e5daff;
     }
+
     #services {
       background-color: #ffdada;
     }
+
     #contact {
       background-color: #c8ffe1;
     }
@@ -113,9 +119,10 @@
         justify-content: center;
         align-items: center;
         transition: all 200ms;
-        color:#116EFA;
+        color: #116EFA;
         transform: translatex(100%);
       }
+
       .navbar .navLinks ul {
         display: flex;
         flex-direction: column;
@@ -127,11 +134,13 @@
       .navbar.open .navLinks {
         transform: translatex(0%);
       }
+
       .navbar .burger {
         display: block;
         cursor: pointer;
         font-size: 22px;
       }
+
       .navbar .burger:hover {
         color: #116EFA;
       }
@@ -185,7 +194,7 @@
     .personal-info i {
       font-size: 15px;
       /* color: var(--main-color);*/
-    ;
+      ;
       margin-right: 15px;
       width: 18px;
     }
@@ -515,6 +524,7 @@
       -ms-filter: alpha(opacity=60);
       filter: alpha(opacity=60);
     }
+
     .bs-example {
       margin: 30px;
     }
@@ -552,135 +562,165 @@
       border: solid #eee;
       border-width: 0 4px 0 0;
     }
-    .left-profile-card svg{
+
+    .left-profile-card svg {
       margin-right: 10px;
     }
-
   </style>
 </head>
+
 <body>
-<div class="navbar">
-  <div class="logo">
-    <a href="#home">LOGO</a>
+  <div class="navbar">
+    <div class="logo">
+      <a href="#home">LOGO</a>
+    </div>
+    <div class="navLinks">
+      <ul>
+        <a title="La base" href="basictemp.php?nbr=2&&partie=1&&ex=1" class="navLink">
+          <li>
+            Partie 1
+          </li>
+        </a>
+        <a title="Les fonctions" href="basictemp.php?nbr=6" class="navLink">
+          <li>
+            Partie 2
+          </li>
+        </a>
+        <a title="Les fichiers" href="basictemp.php?nbr=14" class="navLink">
+          <li>
+            Partie 3
+          </li>
+        </a>
+        <a title="La base de données" href="basictemp.php?nbr=20" class="navLink">
+          <li>
+            Partie 4
+          </li>
+        </a>
+      </ul>
+    </div>
+    <div class="burger">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+      </svg>
+    </div>
   </div>
-  <div class="navLinks">
-    <ul>
-      <a title="La base" href="#home" class="navLink">
-        <li>
-          Partie 1
-        </li>
-      </a>
-      <a title="Les fonctions" href="#about" class="navLink">
-        <li>
-          Partie 2
-        </li>
-      </a>
-      <a title="Les fichiers" href="#services" class="navLink">
-        <li>
-          Partie 3
-        </li>
-      </a>
-      <a title="La base de données" href="#contact" class="navLink">
-        <li>
-          Partie 4
-        </li>
-      </a>
-    </ul>
-  </div>
-  <div class="burger">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-    </svg>
-  </div>
-</div>
-<div class="container mt-5" style="padding-top: 50px">
-  <div class="row">
-    <div class="col-lg-3 ">
-      <div class="card left-profile-card">
-        <div class="card-body" >
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-body">
-                <nav class="nav flex-column nav-pills nav-gap-y-1">
-                  <a href="#profile" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    Exercice 1
-                  </a>
-                  <a href="#account" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    Exercice 2
-                  </a>
-                  <a href="#security" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    Exercice 3
-                  </a>
-                  <a href="#notification" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    Exercice 4
-                  </a>
-                  <a href="#billing" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-                    Exercice 5
-                  </a>
-                </nav>
+  <div class="container mt-5" style="padding-top: 50px">
+    <div class="row">
+      <div class="col-lg-3 ">
+        <div class="card left-profile-card">
+          <div class="card-body">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-body">
+                  <nav class="nav flex-column nav-pills nav-gap-y-1">
+                    <?php
+                    // $nbr = $_GET["nbr"] ?? '';
+
+                    $nbr = $_GET["nbr"] ?? 2;
+                    $partie = $_GET["partie"] ?? 1;
+                    $ex = $_GET["ex"] ?? 1;
+
+                    for ($i = 1; $i <= $nbr; $i++) {
+
+                      echo ('<a href="basictemp.php?nbr=' . $nbr . '&&partie="' . $partie . '&&ex=' . $ex . ' data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded ' . ($i == 1 ? "active" : "") . ' ">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card mr-2">
+                            <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                            <line x1="1" y1="10" x2="23" y2="10"></line>
+                          </svg> 
+                          Exercice ' . $i . ' </a>');
+                    }
+                    ?>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9">
+        <div class="card right-profile-card">
+          <div class="card-header alert-primary">
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+              <li class="nav-item">
+                <?php
+                if (isset($_GET["nbr"])) {
+                  $nbr = $_GET["nbr"] ?? 2;
+                  $partie = $_GET["partie"] ?? 1;
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=enonce&&partie=' . $partie . '" role="tab" aria-selected="true">Enoncé</a>';
+                } else {
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=enonce" role="tab" aria-selected="true">Enoncé</a>';
+                }
+                ?>
+
+              </li>
+              <li class="nav-item">
+                <?php
+                if (isset($_GET["nbr"])) {
+                  $nbr = $_GET["nbr"] ?? 2;
+                  $partie = $_GET["partie"] ?? 1;
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=demo&&partie=' . $partie . '" role="tab" aria-selected="true">Demo</a>';
+                } else {
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=demo" role="tab" aria-selected="true">Demo</a>';
+                }
+                ?>
+
+              </li>
+              <li class="nav-item">
+                <?php
+                if (isset($_GET["nbr"])) {
+                  $nbr = $_GET["nbr"] ?? 2;
+                  $partie = $_GET["partie"] ?? 1;
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=' . $nbr . '&&type=codesource&&partie=' . $partie . '" role="tab" aria-selected="true">Code source</a>';
+                } else {
+                  echo '<a class="nav-link " id="pills-home-tab" data-toggle="pill" href="basictemp.php?nbr=2&&partie=1&&type=codesource" role="tab" aria-selected="true">Code source</a>';
+                }
+                ?>
+
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+
+            <div class="tab-content" id="pills-tabContent">
+              <div class="bs-example">
+                <div class="panel panel-default">
+
+                  <div class="panel-body">
+                    <?php
+                    $type = $_GET["type"] ?? 'enonce';
+                    $partie = $_GET["partie"] ?? 1;
+                    $ex = $_GET["ex"] ?? 1;
+                    echo "<iframe src='Parties\Partie" . $partie . "\Exercice" . $ex . "\\" . $type . ".php' width='100%'></iframe>";
+
+                    ?>
+
+                    <!-- <pre><ol><li>var isPrime = function(num) {</li><li>  var prime = num > 1;</li><li>  for(var i = 2; i < num; ++i) {</li><li>    if(num % i == 0) {</li><li>      prime = false;</li><li>      break;</li><li>    }</li><li>  }</li><li>  return prime;</li><li>}</li></ol></pre> -->
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-lg-9">
-      <div class="card right-profile-card">
-        <div class="card-header alert-primary">
-          <ul class="nav nav-pills" id="pills-tab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link " id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-selected="true">Enoncé</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="pills-education-tab" data-toggle="pill" href="#pills-education" role="tab" aria-selected="false">Démo</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" id="pills-timeline-tab" data-toggle="pill" href="#pills-timeline" role="tab" aria-selected="false">Code Source</a>
-            </li>
-          </ul>
-        </div>
-        <div class="card-body">
-         
-          <div class="tab-content"  id="pills-tabContent">
-            <div class="bs-example">
-              <div class="panel panel-default">
-
-               <div class="panel-body">
-                <iframe src="Parties\Partie1\Exercice1\enonce.html" frameborder="1" width="100%" >
-                
-                </iframe>
-                 <!-- <pre><ol><li>var isPrime = function(num) {</li><li>  var prime = num > 1;</li><li>  for(var i = 2; i < num; ++i) {</li><li>    if(num % i == 0) {</li><li>      prime = false;</li><li>      break;</li><li>    }</li><li>  }</li><li>  return prime;</li><li>}</li></ol></pre> -->
-                </div> 
-              </div>
-            </div> 
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 
-<script>
-  const burger = document.querySelector(".burger");
-  const navbar = document.querySelector(".navbar");
+  <script>
+    const burger = document.querySelector(".burger");
+    const navbar = document.querySelector(".navbar");
 
-  burger.addEventListener("click", () => {
-    navbar.classList.toggle("open");
-    console.log("click");
-  });
-
-  document.addEventListener("mouseup", (e) => {
-    if (!navbar.contains(e.target) && navbar.classList.contains("open")) {
+    burger.addEventListener("click", () => {
       navbar.classList.toggle("open");
-    }
-  });
+      console.log("click");
+    });
 
-</script>
+    document.addEventListener("mouseup", (e) => {
+      if (!navbar.contains(e.target) && navbar.classList.contains("open")) {
+        navbar.classList.toggle("open");
+      }
+    });
+  </script>
 </body>
+
 </html>
