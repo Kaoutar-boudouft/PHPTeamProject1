@@ -17,7 +17,7 @@
 <body>
 
     <div class="exe3">
-        <h2>Exercice 3</h2>
+        <h2>Exercice 2</h2>
         <hr>
 
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
