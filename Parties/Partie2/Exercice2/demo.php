@@ -26,9 +26,9 @@
         <h2>Exercice 2</h2>
         <hr>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <label class="form-label"> TXT: </label> <input type="text"  placeholder="Txt" name="txt" class="form-control w-50"/>
-            <label class="form-label"> X: </label> <input type="text" placeholder="X" name="x" class="form-control w-50"/>
-            <label class="form-label"> Y: </label> <input type="text" placeholder="Y" name="y" class="form-control w-50"/>
+            <label class="form-label"> TXT: </label> <input type="text"  placeholder="Txt" name="txt" class="form-control w-50" value="<?= $_POST['txt']??'' ?>"/>
+            <label class="form-label"> X: </label> <input type="text" placeholder="X" name="x" class="form-control w-50" value="<?= $_POST['x']??'' ?>"/>
+            <label class="form-label"> Y: </label> <input type="text" placeholder="Y" name="y" class="form-control w-50" value="<?= $_POST['y']??'' ?>"/>
             <input type="submit" value="submit" name="submit" class="btn btn-primary mt-3"><br><br>
             <label class="form-label"><b>RESULTAT:</b><?php echo ' ' . $res ?></label>
         </form>
