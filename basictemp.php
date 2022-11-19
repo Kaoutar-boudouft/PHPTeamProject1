@@ -5,7 +5,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title><?= "Partie ".($_GET['partie']??1)." Exercice ".($_GET['ex']??1)." | ".($_GET['type']??'enonce')?></title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
