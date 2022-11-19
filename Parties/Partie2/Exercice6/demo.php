@@ -15,11 +15,11 @@ include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
         return $NewTxt;
     }
  */
-$TXT="";
-$RLE="";
+$TXT = "";
+$RLE = "";
 if (isset($_POST['result'])) {
     $TXT = $_POST['TXT'];
-    $RLE=DecodageRLE($TXT);
+    $RLE = DecodageRLE($TXT);
 }
 ?>
 <!DOCTYPE HTML>
@@ -33,24 +33,24 @@ if (isset($_POST['result'])) {
 </head>
 
 <body>
-<h1>Exercice 5</h1>
-<hr>
-<form action="" method="POST" >
-    <div>
-        <label>Chaine de caractére</label>
+    <h1>Exercice 5</h1>
+    <hr>
+    <form action="" method="POST">
+        <div>
+            <label class="form-label">Chaine de caractére</label>
+            <br>
+            <input class="form-control  w-50" type="text" name="TXT" id="TXT" value="<?= $TXT; ?>">
+        </div>
+        <input class="btn btn-primary mt-4" type="submit" value="Resultat" name="result">
         <br>
-        <input type="text" name="TXT" id="TXT" value="<?=$TXT; ?>">
-    </div>
-    <input class="btn btn-primary mt-4" type="submit" value="Resultat" name="result">
-    <br>
-    <br>
-    <div>
-        <label>Decodage RLE</label>
         <br>
-        <input readonly type="text"  name="rle" id="rle" value="<?=$RLE; ?>">
-    </div>
-    <br>
-</form>
+        <div>
+            <label class="form-label">Decodage RLE</label>
+            <br>
+            <input readonly type="text" class="form-control  w-50" name="rle" id="rle" value="<?= $RLE; ?>">
+        </div>
+        <br>
+    </form>
 </body>
 
 </html>
