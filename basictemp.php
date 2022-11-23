@@ -584,7 +584,7 @@
             Partie 2
           </li>
         </a>
-        <a title="Les fichiers" href="basictemp.php?nbr=14" class="navLink">
+        <a title="Les fichiers" href="basictemp.php?nbr=14&&partie=3&&ex=1" class="navLink">
           <li>
             Partie 3
           </li>
