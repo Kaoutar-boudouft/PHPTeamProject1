@@ -4,6 +4,13 @@ function Nomcomplet($nom, $prenom)
 {
     return $nom . ' ' . $prenom;
 }
+
+//Exercice 2 partie 2
+function Remplacer($X,$Y,$TXT)
+{
+    return str_replace($X,$Y,$TXT);
+}
+
 //Exercice 3 partie 2
 function Rpetition($txt, $i)
 {
@@ -258,4 +265,11 @@ function monFichier1($ch)
         creerFichier($ch);
         return "";
     }
+}
+
+// Exercice 4 (Copier) Partie 3 : 
+function monFichier2($ch1,$ch2)
+{
+    copy($ch1,$ch2);
+
 }

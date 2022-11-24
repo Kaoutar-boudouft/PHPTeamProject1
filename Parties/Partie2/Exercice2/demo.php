@@ -1,3 +1,21 @@
+<?php 
+include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
+/**************************Code fonction Remplacer utiliser*************************/
+/*function Remplacer($X,$Y,$TXT)
+{
+    return str_replace($X,$Y,$TXT);
+}*/
+    $res = '';
+    if (isset($_POST["submit"]))
+    {
+        $TXT = $_POST['txt'];
+        $X = $_POST['x'];
+        $Y = $_POST['y'];
+        $res = Remplacer($X,$Y,$TXT);
+    }
+    
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -10,18 +28,7 @@
 
 <body>
 
-    <?php 
 
-        $res = '';
-        if (isset($_POST["submit"]))
-        {
-            $TXT = $_POST['txt'];
-            $X = $_POST['x'];
-            $Y = $_POST['y'];
-            $res = str_replace($X,$Y,$TXT);
-        }
-        
-    ?>
     <div class="exe2">
         <h2>Exercice 2</h2>
         <hr>
