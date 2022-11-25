@@ -589,7 +589,7 @@
                         Partie 3
                     </li>
                 </a>
-                <a title="La base de données" href="basictemp.php?nbr=20" class="navLink">
+                <a title="La base de données" href="basictemp.php?nbr=3&&partie=4&&ex=1" class="navLink">
                     <li>
                         Partie 4
                     </li>
