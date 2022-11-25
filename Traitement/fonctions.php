@@ -5,6 +5,8 @@ function Nomcomplet($nom, $prenom)
     return $nom . ' ' . $prenom;
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+
 //Exercice 2 partie 2
 function Remplacer($X,$Y,$TXT)
 {
@@ -24,7 +26,7 @@ function Rpetition($txt, $i)
     return $c;
 }
 
-//Exercie 4 Partie 3
+//Exercie 4 Partie 2
 function Entier($txt, $i)
 {
     $c = 0;
@@ -70,6 +72,7 @@ function DecodageRLE($TXT)
     return $NewTxt;
 }
 
+///////////////////////////////////////////////////////////////////////////
 
 //Calculer 3 Temporaire
 function Calculer3($ch)
