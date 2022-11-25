@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : jeu. 24 nov. 2022 à 22:17
--- Version du serveur : 10.4.22-MariaDB
--- Version de PHP : 8.1.2
+-- Host: localhost:3306
+-- Generation Time: Nov 25, 2022 at 07:03 AM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,126 +18,137 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `gestionnotes`
+-- Database: `gestionnotes`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `classes`
+-- Table structure for table `classes`
 --
 
 CREATE TABLE `classes` (
-  `codeClasse` varchar(225) NOT NULL,
-  `filiere` varchar(225) DEFAULT NULL,
-  `nom` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `codeClasse` varchar(25) NOT NULL,
+  `filier` varchar(250) NOT NULL,
+  `num` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `classes`
+-- Dumping data for table `classes`
 --
 
-INSERT INTO `classes` (`codeClasse`, `filiere`, `nom`) VALUES
-('1', 'LDW', 1),
-('2', 'svt', 2),
-('3', 'pc', 3),
-('4', 'maths', 4);
+INSERT INTO `classes` (`codeClasse`, `filier`, `num`) VALUES
+('C1', 'LDW', 70),
+('C2', 'SVT', 52),
+('C3', 'PC', 68);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `etudiants`
+-- Table structure for table `etudiants`
 --
 
 CREATE TABLE `etudiants` (
-  `CNE` varchar(225) NOT NULL,
-  `nom` varchar(225) DEFAULT NULL,
-  `codeClasse` varchar(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `CNE` varchar(25) NOT NULL,
+  `nom` varchar(50) NOT NULL,
+  `codeClasse` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `etudiants`
+-- Dumping data for table `etudiants`
 --
 
 INSERT INTO `etudiants` (`CNE`, `nom`, `codeClasse`) VALUES
-('1', 'Zineb', '1'),
-('2', 'Khadija', '2'),
-('3', 'Kaoutar', '3'),
-('4', 'Houda', '3'),
-('5', 'Asmaa', '4');
+('D147955680', 'Yahya Kaabal', 'C3'),
+('p13598756', 'Houda Abouzaher', 'C1'),
+('p179200045', 'Zineb Benchkroune', 'C1');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `matieres`
+-- Table structure for table `matieres`
 --
 
 CREATE TABLE `matieres` (
-  `codeMat` varchar(225) NOT NULL,
-  `designation` varchar(225) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `codeMat` varchar(25) NOT NULL,
+  `designation` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `matieres`
+-- Dumping data for table `matieres`
 --
 
 INSERT INTO `matieres` (`codeMat`, `designation`) VALUES
-('1', 'informatique'),
-('2', 'physique chimie'),
-('3', 'biologie'),
-('4', 'maths');
+('M1', 'Communication'),
+('M2', 'PHP'),
+('M3', 'JAVA');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `notes`
+-- Table structure for table `notes`
 --
 
 CREATE TABLE `notes` (
-  `codeMat` varchar(225) NOT NULL,
-  `CNE` varchar(225) NOT NULL,
+  `codeMat` varchar(25) DEFAULT NULL,
+  `CNE` varchar(25) DEFAULT NULL,
   `note` double DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Déchargement des données de la table `notes`
+-- Dumping data for table `notes`
 --
 
 INSERT INTO `notes` (`codeMat`, `CNE`, `note`) VALUES
-('1', '1', 19),
-('2', '2', 18),
-('2', '3', 17),
-('3', '4', 19),
-('3', '5', 17),
-('4', '5', 20);
+('M1', 'p179200045', 17.5),
+('M3', 'p13598756', 15);
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `classes`
+-- Indexes for table `classes`
 --
 ALTER TABLE `classes`
   ADD PRIMARY KEY (`codeClasse`);
 
 --
--- Index pour la table `etudiants`
+-- Indexes for table `etudiants`
 --
 ALTER TABLE `etudiants`
-  ADD PRIMARY KEY (`CNE`);
+  ADD PRIMARY KEY (`CNE`),
+  ADD KEY `codeClasse` (`codeClasse`);
 
 --
--- Index pour la table `matieres`
+-- Indexes for table `matieres`
 --
 ALTER TABLE `matieres`
   ADD PRIMARY KEY (`codeMat`);
 
 --
--- Index pour la table `notes`
+-- Indexes for table `notes`
 --
 ALTER TABLE `notes`
-  ADD PRIMARY KEY (`codeMat`,`CNE`);
+  ADD KEY `codeMat` (`codeMat`),
+  ADD KEY `CNE` (`CNE`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `etudiants`
+--
+ALTER TABLE `etudiants`
+  ADD CONSTRAINT `etudiants_ibfk_1` FOREIGN KEY (`codeClasse`) REFERENCES `classes` (`codeClasse`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `notes`
+--
+ALTER TABLE `notes`
+  ADD CONSTRAINT `notes_ibfk_1` FOREIGN KEY (`codeMat`) REFERENCES `matieres` (`codeMat`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `notes_ibfk_2` FOREIGN KEY (`CNE`) REFERENCES `etudiants` (`CNE`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
