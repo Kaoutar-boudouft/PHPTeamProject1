@@ -304,3 +304,17 @@ function Calculer3($ch)
         }
         return file_get_contents('Resultat');
     }
+
+//Exercice 8 partie 3
+function chercherMot($ch, $mot)
+{
+    $contenu = afficherFichier1($ch);
+    $m = explode(' ', $contenu);
+    $c = 0;
+    foreach ($m as $key => $value){
+        if ($value == $mot) {
+            $c++;
+        }
+    }
+    return $c;
+}
