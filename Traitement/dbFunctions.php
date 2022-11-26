@@ -40,10 +40,36 @@ function updateMatiere($codeMat,$newDesignation){
     $req="update matieres set designation='$newDesignation' where codeMat='$codeMat'";
     return miseajour($req);
 }
+//Table Classes
+function aficherClassesCode($codeC){
+    $req="select * from classes where codeClasse='$codeC'";
+    $arr=[];
+    $cursor=selection($req);
+    while ($row=$cursor->fetch()){
+        $arr[0]=$row[1];
+        $arr[1]=$row[2];
+    }
+    $cursor->closeCursor();
+    return $arr;
+}
+    function aficherClasses(){
+        $req='select * from classes';
+        return selection($req);
+    }
 
+    function ajouterClasse($codeClasse, $filiere, $num){
+        $req="insert into classes values('$codeClasse','$filiere', '$num')";
+        return miseajour($req);
+    }
 
-
-
+    function supprimerClasse($codeClasse){
+        $req="delete from classes where codeClasse='$codeClasse'";
+        return miseajour($req);
+    }
+    function modifierClasse($codeClasse,$filiere,$num){
+        $req="update classes set filier='$filiere', num='$num' where codeClasse='$codeClasse'";
+        return miseajour($req);
+    }
 
 
 

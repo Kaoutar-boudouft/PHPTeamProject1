@@ -71,41 +71,6 @@ function DecodageRLE($TXT)
     }
     return $NewTxt;
 }
-
-///////////////////////////////////////////////////////////////////////////
-
-//Calculer 3 Temporaire
-function Calculer3($ch)
-{
-    if (!file_exists('../documents/' . $ch . '.txt')) {
-        return array(0, "The file :  " . $ch . " not found");
-    }
-    $file = fopen('../documents/' . $ch . '.txt', "r");
-    if (!$file) {
-        return array(0, 'File ' . $ch . ' opening filed !');
-    }
-    $lettreCount = 0;
-    $chiffreCount = 0;
-    $ligneCount = 0;
-    while (!feof($file)) {
-        $ligneCount++;
-        $line = fgets($file);
-        if ($line != "") {
-            $index = 0;
-            while ($index < strlen($line)) {
-                if (preg_match('/[a-zA-Z]/', $line[$index])) {
-                    $lettreCount++;
-                } elseif (preg_match('/[0-9]/', $line[$index])) {
-                    $chiffreCount++;
-                }
-                $index++;
-            }
-        }
-    }
-    fclose($file);
-    return array($lettreCount, $chiffreCount, $ligneCount);
-}
-
 //afficherFichie Temporaire
 function afficherFichier($filename)
 {
@@ -276,3 +241,66 @@ function monFichier2($ch1,$ch2)
     copy($ch1,$ch2);
 
 }
+//exercice 5 partie 3
+function Calculer1($ch){
+    $arrV=['a','e','o','i','u'];
+    $arrC=['b','c','d','h','f','j','g','k','l','m','n','p','q','r','s','t','v','w','x','y','z'];
+    $vowels=0;
+    $consonant=0;
+    $string=file_get_contents($ch);
+    for($i=0;$i<strlen($string);$i++){
+        if(in_array(strtolower($string[$i]),$arrV)){$vowels++;}
+        else  if(in_array(strtolower($string[$i]),$arrC)){$consonant++;}
+    }
+    return array('nVowels'=>$vowels,'nConsonant'=>$consonant);
+}
+//Exercice 6 partie 3
+function Calculer2($ch){
+    $numbers=0;
+    $char=0;
+   $file=file_get_contents($ch);
+   for($i=0;$i<strlen($file);$i++){
+        if(is_numeric($file[$i])){
+            $numbers++;
+        }else if (ctype_alpha($file[$i])){
+           $char++;
+        }
+    }
+    return array('nNumbers'=>$numbers,'nChar'=>$char);
+} 
+//Exercice 7 partie 3
+function Calculer3($ch)
+    {
+        $nombreLignes=0;
+        $file=fopen($ch,'r');
+        $res=Calculer2($ch);
+        while (!feof($file)) {
+            fgets($file);
+            $nombreLignes++;
+        }
+        fclose($file);
+        if($nombreLignes>=$res['nChar'] && $nombreLignes>=$res['nNumbers']){
+            if($res['nChar']>=$res['nNumbers']){
+                file_put_contents('Resultat',"Nombres lignes trouvées: ".$nombreLignes."<br>Nombres des lettres trouvées: ".$res['nChar']."<br>Nombres chiffres trouvés: ".$res['nNumbers']);
+            }else{
+                file_put_contents('Resultat',"Nombres lignes trouvées: ".$nombreLignes."<br>Nombres chiffres trouvés: ".$res['nNumbers']."<br>Nombres des lettres trouvées: ".$res['nChar']);
+
+            }
+        } else if($res['nChar']>=$nombreLignes&&$res['nChar']>=$res['nNumbers']){
+            if($nombreLignes>=$res['nNumbers']){
+                file_put_contents('Resultat',"Nombres des lettres trouvées: ".$res['nChar']."<br>Nombres lignes trouvées: ".$nombreLignes."<br>Nombres chiffres trouvés: ".$res['nNumbers']);
+            }else{
+                file_put_contents('Resultat',"Nombres des lettres trouvées: ".$res['nChar']."<br>Nombres chiffres trouvés: ".$res['nNumbers']."<br>Nombres lignes trouvées: ".$nombreLignes);
+
+            }
+        }
+        else{
+            if($nombreLignes>=$res['nNumbers']){
+                file_put_contents('Resultat',"Nombres chiffres trouvés: ".$res['nNumbers']."<br>Nombres lignes trouvées: ".$nombreLignes."<br>Nombres des lettres trouvées: ".$res['nChar']);
+            }else{
+                file_put_contents('Resultat',"Nombres chiffres trouvés: ".$res['nNumbers']."<br>Nombres des lettres trouvées: ".$res['nChar']."<br>Nombres lignes trouvées: ".$nombreLignes);
+
+            }
+        }
+        return file_get_contents('Resultat');
+    }

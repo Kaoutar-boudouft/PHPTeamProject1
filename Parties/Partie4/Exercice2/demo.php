@@ -38,7 +38,7 @@ include_once '../../../Traitement/dbFunctions.php';
                                 </div>
                             </div>
                         </td>
-                        <td class="pt-2" > <span class="badge badge-secondary text-white  bg-secondary font-semibold px-2 rounded-full"> <a style="text-decoration: none;color: white" href="" >Ajouter</a><br></span><br><span class="badge badge-primary text-white text-sm w-1/3 pb-1 bg-primary font-semibold px-2 rounded-full"><a style="text-decoration: none;color: white"  href="#" >Afficher</a></span>  </td>
+                        <td class="pt-2" > <span class="badge badge-secondary text-white  bg-secondary font-semibold px-2 rounded-full"> <a style="text-decoration: none;color: white" href="./ClassesManagement/ajouterClasse.php" >Ajouter</a><br></span><br><span class="badge badge-primary text-white text-sm w-1/3 pb-1 bg-primary font-semibold px-2 rounded-full"><a style="text-decoration: none;color: white"  href="./ClassesManagement/afficherClasses.php" >Afficher</a></span>  </td>
                         <td class="px-6 py-4 text-center"><?php
                             echo getRowsCount("classes");
                             ?>
