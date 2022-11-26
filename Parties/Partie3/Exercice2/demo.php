@@ -12,7 +12,7 @@ if (isset($_POST["submit1"])) {
     if ($nom != "") {
         $extension = explode(".", $nom);
         if ($extension[1] == "txt") {
-            $lire = afficherFichier1("../Exercice1/" . $nom);
+            $lire = afficherFichier1($nom);
         } else
             echo "extension invalide";
     }
