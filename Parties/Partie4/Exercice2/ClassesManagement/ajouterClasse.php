@@ -1,5 +1,11 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
+
+if(isset($_POST['codeC']) && isset($_POST['filiere']) && isset($_POST['numC'])){
+    ajouterClasse($_POST['codeC'],$_POST['filiere'],$_POST['numC']);
+    header("location: ./afficherClasses.php");
+}
+
 ?>
 
 <!DOCTYPE HTML>
@@ -18,7 +24,7 @@ include_once '../../../../Traitement/dbFunctions.php';
 <div class="exe2">
     <h2>Ajouter Classe</h2>
     <hr>
-    <form action="./afficherClasses.php" method="post">
+    <form action="" method="post">
         <label class="form-label"> Code Classe : </label> <input type="text"   name="codeC" class="form-control w-50" value=""/>
         <label class="form-label"> Filliere : </label> <input type="text"  name="filiere" class="form-control w-50" value=""/>
         <label class="form-label"> Numero classe : </label> <input type="text" name="numC" class="form-control w-50" value=""/>

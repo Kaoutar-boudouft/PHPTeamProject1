@@ -6,9 +6,8 @@ include_once '../../../../Traitement/dbFunctions.php';
  $codeC="";
 if (isset($_GET['codeC'])){
     $codeC=$_GET['codeC'];
+    supprimerClasse($_GET['codeC']);
     $res=aficherClassesCode($codeC);
-    $filiere=$res[0];
-    $numC=$res[1];
 }
 
 ?>
@@ -30,9 +29,9 @@ if (isset($_GET['codeC'])){
     <h2>Supprimer Classe <?php echo $codeC;?></h2>
     <hr>
     <form action="./afficherClasses.php" method="post">
-        <div class='overflow-x-auto w-full'>
-            <label class="form-label"> Voullez-vous vraiment supprimer cette classe! </label>
-            <input type="submit" value="Accepter" name="submit" class="btn btn-primary mt-3">
+        <div class='overflow-x-auto w-full text-center d-flex flex-column justify-content-between align-items-center' style="height:100px" >
+            <label class="form-label text-warning h3"> Voullez-vous vraiment supprimer cette classe! </label>
+            <input type="submit" value="Accepter" name="submit" class="btn btn-primary w-25">
         </div>
     </form>
 </div>
