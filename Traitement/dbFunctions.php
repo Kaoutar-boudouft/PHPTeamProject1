@@ -117,3 +117,15 @@ function getMatierParCNE($cne)
     $req = "SELECT * from matieres where  codeMat not in(select codeMat from notes where CNE='$cne')";
     return selection($req);
 }
+///PARTIE4 Exercie 3
+function getAllEtudiantParCNE($cne)
+{
+    $req = "select * from etudiants where CNE='$cne'";
+    return selection($req);
+}
+
+function getBulletin($cne)
+{
+    $req = "SELECT matieres.designation,notes.note, (notes.note*2/3) as Moyenne FROM matieres JOIN notes on matieres.codeMat=notes.codeMat where notes.CNE='$cne'";
+    return selection($req);
+}
