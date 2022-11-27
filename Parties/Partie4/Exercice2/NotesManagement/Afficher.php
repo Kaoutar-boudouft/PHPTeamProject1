@@ -1,35 +1,19 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
-/**************************Code fonction getAllMatieres utiliser*************************/
-/*
-function getAllMatieres(){
-    $req="select * from matieres";
-    return selection($req);
+
+if (isset($_GET["codeMat"]) && isset($_GET["cne"])) {
+    $code = $_GET["codeMat"];
+    $cne = $_GET["cne"];
+    $res = SupprimerNote($code, $cne);
 }
- */
-/**************************Code fonction removeMatiere utiliser*************************/
-/*
- function removeMatiere($codeMat){
-    $req="delete from matieres where codeMat='$codeMat'";
+/****Code fonction SupprimerNote utiliser 
+  
+function SupprimerNote($codeMat, $cne)
+{
+    $req = "delete from notes where codeMat='$codeMat' and CNE='$cne'";
     return miseajour($req);
 }
  */
-
-if (isset($_GET['codeMat'])) {
-    $res = removeMatiere($_GET['codeMat']);
-    /* if ($res==1){
-        echo "La matiere avec le code ".$_GET['codeMat']." a été supprimée!";
-    }
-    else{
-        echo "erreur a l'hors de suppression";
-    }*/
-}
-if (isset($_POST['codeMatM'])) {
-    $res = updateMatiere($_POST['codeMatM'], $_POST['designationM']);
-}
-if (isset($_POST['codeMatA'])) {
-    $res = addNewMatiere($_POST['codeMatA'], $_POST['designationA']);
-}
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -48,32 +32,52 @@ if (isset($_POST['codeMatA'])) {
 </head>
 
 <body>
+
+
     <div class="exe3">
+        <a href="codesource.php?page=Afficher.php" class="btn btn-link">Voir le code source ici</a>
         <div style="width: 80%" class="mx-auto">
+
             <div class='overflow-x-auto w-full'>
+
                 <table class='table table-responsive mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden table-hover table-striped'>
                     <thead class="bg-light">
                         <tr class="text-dark text-left">
-                            <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> Code Matiere </th>
-                            <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> Designation </th>
-                            <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> Actions </th>
+                            <th class="font-semibold text-sm uppercase px-6 py-4 text-center">CodeMat</th>
+                            <th class="font-semibold text-sm uppercase px-6 py-4 text-center">CNE</th>
+                            <th class="font-semibold text-sm uppercase px-6 py-4 text-center">Note</th>
+                            <th class="font-semibold text-sm uppercase px-6 py-4 text-center">Action</th>
+
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-200">
                         <?php
-                        $cursor = getAllMatieres();
+                        /****Code fonction AfficherNotes utiliser 
+
+                    function AfficherNotes()
+                    {
+                        $req = "select * from notes";
+                        return selection($req);
+                    }
+                         */
+                        $cursor = AfficherNotes();
                         while ($row = $cursor->fetch()) {
+
                             echo (' <tr>
                     <td class="px-6 py-4 mx-auto text-center">                 
                                 ' . $row[0] . '                      
                     </td>
                     <td class="px-6 py-4 text-center mx-auto text-center"> ' . $row[1] . ' </td>
-                        <td class="pt-2 text-center" > <span class="badge badge-primary text-white  bg-primary font-semibold px-2 rounded-full w-100"> <a style="text-decoration: none;color: white" href="./update.php?codeMat=' . $row[0] . '" >Modifier</a><br>
+                    <td class="px-6 py-4 text-center mx-auto text-center"> ' . $row[2] . ' </td>
+                        <td class="pt-2 text-center" > 
+                        <span class="badge badge-primary text-white  bg-primary font-semibold px-2 rounded-full w-100">
+                         <a style="text-decoration: none;color: white" href="Modifier.php?codeMat=' . $row[0] . '&&cne=' . $row[1] . '&&note=' . $row[2] . '" >Modifier</a><br>
                         </span><br><span class="badge badge-secondary text-white text-sm w-1/3 pb-1 bg-secondary font-semibold px-2 rounded-full w-100">
-                        <a style="text-decoration: none;color: white"  href="./matieresManagement/showAll.php?codeMat=' . $row[0] . '" >Supprimer</a></span>  </td>
+                        <a style="text-decoration: none;color: white"  href="Afficher.php?codeMat=' . $row[0] . '&&cne=' . $row[1] . '" >Supprimer</a></span>  </td>
                 </tr>');
                         }
                         ?>
+
 
                     </tbody>
                 </table>
