@@ -40,7 +40,7 @@ include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
     <div class="row pt-4">
         <div class="col-12">
             <?php
-            $content=afficherFichier("info");
+            $content=afficherFichier('../documents/info.txt');
             echo "<pre>$content</pre>";
             ?>
         </div>

@@ -45,6 +45,8 @@ function updateMatiere($codeMat, $newDesignation)
     $req = "update matieres set designation='$newDesignation' where codeMat='$codeMat'";
     return miseajour($req);
 }
+
+
 //Table Classes
 function aficherClassesCode($codeC)
 {

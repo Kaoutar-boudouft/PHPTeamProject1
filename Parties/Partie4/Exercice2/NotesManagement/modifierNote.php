@@ -8,7 +8,7 @@ if (isset($_POST["submit"])) {
     $note = $_POST["note"];
     $cne = $_POST["cne"];
     $res = ModifierNote($code, $cne, $note);
-    header("location: Afficher.php");
+    header("location: afficherNotes.php");
 }
 
 /****Code fonction ModifierNote utiliser 
@@ -43,7 +43,7 @@ if (isset($_POST["submit"])) {
         <br>
         <input type="submit" name="submit" value="Envoyer" class="btn btn-primary">
     </form>
-    <a href="codesource.php?page=Modifier.php">Voir le code source ici</a>
+    <a href="codesource.php?page=modifierNote.php">Voir le code source ici</a>
 </body>
 
 </html>

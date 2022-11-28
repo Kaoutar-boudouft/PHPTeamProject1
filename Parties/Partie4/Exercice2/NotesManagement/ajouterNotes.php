@@ -6,7 +6,7 @@ if (isset($_POST["submit"])) {
     $note = $_POST["note"];
     $cne = $_POST["cne"];
     $res = AjouterNote($code, $cne, $note);
-    header("location: Afficher.php");
+    header("location: afficherNotes.php");
 }
 /****Code fonction AjouterNote utiliser 
   
@@ -54,7 +54,7 @@ function AjouterNote($codeMat, $cne, $note)
                 $("#cne").change(function() {
                     var cne = $("#cne").val();
                     $.ajax({
-                        url: 'test.php',
+                        url: 'etudiantMatieres.php',
                         method: 'post',
                         data: 'cne=' + cne
                     }).done(function(response) {
@@ -77,7 +77,7 @@ function AjouterNote($codeMat, $cne, $note)
         Note: <input type="text" name="note" id="" class="form-control w-50">
         <input type="submit" name="submit" value="Envoyer" class="btn btn-primary mt-3">
     </form>
-    <a href="codesource.php?page=Ajouter.php">Voir le code source ici</a>
+    <a href="codesource.php?page=ajouterNotes.php">Voir le code source ici</a>
 
 </body>
 

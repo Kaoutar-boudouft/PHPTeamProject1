@@ -43,6 +43,8 @@ if (isset($_GET['codeMat'])){
         <label class="form-label"> Designation : </label> <input type="text" placeholder="X" name="designationM" class="form-control w-50" value="<?= $designation ?>"/>
         <input type="submit" value="Modifier" name="submit" class="btn btn-primary mt-3"><br><br>
     </form>
+    <a href="codesource.php?page=modifierMatiere.php" class="btn btn-link">Voir le code source ici</a>
+
 </div>
 
 </body>

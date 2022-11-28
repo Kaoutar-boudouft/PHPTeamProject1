@@ -66,7 +66,7 @@ include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
                 move_uploaded_file($_FILES["File"]["tmp_name"], "../Exercice5/uploads/" . $file);
                 //copy($_FILES["File"]["tmp_name"], "uploads/" . $file);
                     $res=Calculer3("../Exercice5/uploads/" . $file);
-                    echo "<p>".$res."</p>";
+                    echo "<p>".$res[0]."</p>";
                 }
         }else {
             echo "<label class='form-label'>Veuillez verifiez votre fichier!!</label>";

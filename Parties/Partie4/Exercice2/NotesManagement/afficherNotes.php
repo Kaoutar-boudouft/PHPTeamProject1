@@ -35,7 +35,7 @@ function SupprimerNote($codeMat, $cne)
 
 
     <div class="exe3">
-        <a href="codesource.php?page=Afficher.php" class="btn btn-link">Voir le code source ici</a>
+        <a href="codesource.php?page=afficherNotes.php" class="btn btn-link">Voir le code source ici</a>
         <div style="width: 80%" class="mx-auto">
 
             <div class='overflow-x-auto w-full'>
@@ -71,9 +71,9 @@ function SupprimerNote($codeMat, $cne)
                     <td class="px-6 py-4 text-center mx-auto text-center"> ' . $row[2] . ' </td>
                         <td class="pt-2 text-center" > 
                         <span class="badge badge-primary text-white  bg-primary font-semibold px-2 rounded-full w-100">
-                         <a style="text-decoration: none;color: white" href="Modifier.php?codeMat=' . $row[0] . '&&cne=' . $row[1] . '&&note=' . $row[2] . '" >Modifier</a><br>
+                         <a style="text-decoration: none;color: white" href="modifierNote.php?codeMat=' . $row[0] . '&&cne=' . $row[1] . '&&note=' . $row[2] . '" >Modifier</a><br>
                         </span><br><span class="badge badge-secondary text-white text-sm w-1/3 pb-1 bg-secondary font-semibold px-2 rounded-full w-100">
-                        <a style="text-decoration: none;color: white"  href="Afficher.php?codeMat=' . $row[0] . '&&cne=' . $row[1] . '" >Supprimer</a></span>  </td>
+                        <a style="text-decoration: none;color: white"  href="afficherNotes.php?codeMat=' . $row[0] . '&&cne=' . $row[1] . '" >Supprimer</a></span>  </td>
                 </tr>');
                         }
                         ?>

@@ -8,7 +8,7 @@ function connextion()
         $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $bdd;
     } catch (Exception $e) {
-        echo ('Erreur : ' . $e->getMessage());
+        return ('Erreur : ' . $e->getMessage());
     }
 }
 
@@ -21,7 +21,7 @@ function miseajour($req)
         $maj = $bdd->exec($req);
         return $maj;
     } catch (Exception $e) {
-        echo ('Erreur : ' . $e->getMessage());
+        return ('Erreur : ' . $e->getMessage());
     }
     $bdd = null;
 }
@@ -35,7 +35,7 @@ function selection($req)
         $rep = $bdd->query($req);
         return $rep;
     } catch (Exception $e) {
-        echo ('Erreur : ' . $e->getMessage());
+        return ('Erreur : ' . $e->getMessage());
     }
     $bdd = null;
 }

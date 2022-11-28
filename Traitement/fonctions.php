@@ -72,7 +72,7 @@ function DecodageRLE($TXT)
     return $NewTxt;
 }
 //afficherFichie Temporaire
-function afficherFichier($filename)
+/*function afficherFichier($filename)
 {
     if (!file_exists('../documents/' . $filename . '.txt')) {
         return 'File not exist !';
@@ -90,7 +90,7 @@ function afficherFichier($filename)
     fclose($file);
 
     return $content;
-}
+}*/
 
 //Exercice 10 Partie 3
 function chargerFichier1($nom, $ville)
@@ -104,8 +104,8 @@ function chargerFichier1($nom, $ville)
     $sizeOnByte = filesize('../documents/info.txt');
     $sizeOnKoctet = $sizeOnByte / 1024;
     if ($sizeOnKoctet < 100) {
-        $calcule = Calculer3("info");
-        $nbrLigne = $calcule[2];
+        $calcule = Calculer3('../documents/info.txt');
+        $nbrLigne = $calcule[1];
         $spaces = "";
         if (strlen($nom) < 15) {
             for ($i = 0; $i <= (15 - strlen($nom)); $i++) {
@@ -212,7 +212,7 @@ function creerFichier($ch)
     fclose($file);
 }
 // 
-function afficherFichier1($ch)
+function afficherFichier($ch)
 {
     // $ch = "../documents/" . $ch;
     if (file_exists("../documents/" . $ch)) {
@@ -303,7 +303,7 @@ function Calculer3($ch)
             file_put_contents('Resultat', "Nombres chiffres trouvés: " . $res['nNumbers'] . "<br>Nombres des lettres trouvées: " . $res['nChar'] . "<br>Nombres lignes trouvées: " . $nombreLignes);
         }
     }
-    return file_get_contents('Resultat');
+    return array(file_get_contents('Resultat'),$nombreLignes);
 }
 
 //Exercice 8 partie 3

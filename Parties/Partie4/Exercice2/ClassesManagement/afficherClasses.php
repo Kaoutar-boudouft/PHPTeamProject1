@@ -20,6 +20,7 @@ include_once '../../../../Traitement/dbFunctions.php';
 
 <body>
     <div class="exe3">
+        <a href="codesource.php?page=afficherClasses.php" class="btn btn-link">Voir le code source ici</a>
         <div style="width: 80%" class="mx-auto">
             <div class='overflow-x-auto w-full'>
                 <table class='table table-responsive mx-auto max-w-4xl w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden table-hover table-striped'>

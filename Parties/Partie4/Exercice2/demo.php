@@ -59,8 +59,8 @@ include_once '../../../Traitement/dbFunctions.php';
                                 </div>
                             </td>
                             <td class="pt-2">
-                                <span class="badge badge-primary text-white text-sm w-1/3 pb-1 bg-primary font-semibold px-2 rounded-full w-100"><a style="text-decoration: none;color: white" href="./matieresManagement/showAll.php">Afficher</a></span> <br>
-                                <span class="badge badge-secondary text-white  bg-secondary font-semibold px-2 rounded-full w-100"> <a style="text-decoration: none;color: white" href="./matieresManagement/add.php">Ajouter</a><br></span>
+                                <span class="badge badge-primary text-white text-sm w-1/3 pb-1 bg-primary font-semibold px-2 rounded-full w-100"><a style="text-decoration: none;color: white" href="./MatieresManagement/afficherMatieres.php">Afficher</a></span> <br>
+                                <span class="badge badge-secondary text-white  bg-secondary font-semibold px-2 rounded-full w-100"> <a style="text-decoration: none;color: white" href="MatieresManagement/ajouterMatiere.php">Ajouter</a><br></span>
                             </td>
                             <td class="px-6 py-4 text-center"><?php
                                                                 echo getRowsCount("matieres");
@@ -95,11 +95,11 @@ include_once '../../../Traitement/dbFunctions.php';
                             </td>
                             <td class="pt-2">
                                 <span class="badge badge-primary text-white text-sm w-1/3 pb-1 bg-primary font-semibold px-2  w-100 ">
-                                    <a style="text-decoration: none;color: white" href="./NotesManagement/Afficher.php">Afficher</a>
+                                    <a style="text-decoration: none;color: white" href="./NotesManagement/afficherNotes.php">Afficher</a>
                                 </span>
                                 <br>
                                 <span class="badge badge-secondary text-white  bg-secondary font-semibold px-2 rounded-full w-100 ">
-                                    <a style="text-decoration: none;color: white" href="./NotesManagement/Ajouter.php">Ajouter</a>
+                                    <a style="text-decoration: none;color: white" href="./NotesManagement/ajouterNotes.php">Ajouter</a>
                                     <br>
                                 </span>
                             </td>

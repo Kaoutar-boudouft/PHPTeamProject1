@@ -30,6 +30,7 @@ if(isset($_POST['codeC']) && isset($_POST['filiere']) && isset($_POST['numC'])){
         <label class="form-label"> Numero classe : </label> <input type="text" name="numC" class="form-control w-50" value=""/>
         <input type="submit" value="Ajouter" name="submit" class="btn btn-primary mt-3"><br><br>
     </form>
+    <a href="codesource.php?page=ajouterClasse.php" class="btn btn-link">Voir le code source ici</a>
 </div>
 
 </body>
