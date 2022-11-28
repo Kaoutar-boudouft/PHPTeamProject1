@@ -229,7 +229,7 @@ function afficherFichier($ch)
 function monFichier1($ch)
 {
     if (file_exists("../documents/" . $ch)) {
-        return afficherFichier1($ch);
+        return afficherFichier($ch);
     } else {
         creerFichier($ch);
         return "";
@@ -303,13 +303,13 @@ function Calculer3($ch)
             file_put_contents('Resultat', "Nombres chiffres trouvés: " . $res['nNumbers'] . "<br>Nombres des lettres trouvées: " . $res['nChar'] . "<br>Nombres lignes trouvées: " . $nombreLignes);
         }
     }
-    return array(file_get_contents('Resultat'),$nombreLignes);
+    return array(file_get_contents('Resultat'), $nombreLignes);
 }
 
 //Exercice 8 partie 3
 function chercherMot($ch, $mot)
 {
-    $contenu = afficherFichier1($ch);
+    $contenu = afficherFichier($ch);
     $m = explode(' ', $contenu);
     $c = 0;
     foreach ($m as $key => $value) {

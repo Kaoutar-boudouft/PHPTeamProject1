@@ -128,6 +128,6 @@ function getAllEtudiantParCNE($cne)
 
 function getBulletin($cne)
 {
-    $req = "SELECT matieres.designation,notes.note, (notes.note*2/3) as Moyenne FROM matieres JOIN notes on matieres.codeMat=notes.codeMat where notes.CNE='$cne'";
+    $req = "SELECT matieres.designation,notes.note, (notes.note*1) as Moyenne FROM matieres JOIN notes on matieres.codeMat=notes.codeMat where notes.CNE='$cne'";
     return selection($req);
 }

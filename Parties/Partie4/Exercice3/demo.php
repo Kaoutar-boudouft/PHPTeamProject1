@@ -1,6 +1,5 @@
 <?php
 include_once '../../../Traitement/dbFunctions.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +17,23 @@ include_once '../../../Traitement/dbFunctions.php';
 <body>
     <script>
         $(document).ready(function() {
+            $("#classe").change(function() {
+                var codeclasse = $("#classe").val();
+                $.ajax({
+                    url: 'classe.php',
+                    method: 'post',
+                    data: 'codeC=' + codeclasse
+                }).done(function(response) {
+                    etudiant = JSON.parse(response);
+                    $("#nom").text("");
+                    $("#tbd").html("");
+                    $("#cne").html("");
+                    $("#cne").append(' <option value="" selected disabled>Code National</option>')
+                    for (let i = 0; i < etudiant.length; i++) {
+                        $("#cne").append("<option vlaue='" + etudiant[i].CNE + "'>" + etudiant[i].CNE + "</option>")
+                    }
+                })
+            })
             $("#cne").change(function() {
                 var cne = $("#cne").val();
 
@@ -27,7 +43,7 @@ include_once '../../../Traitement/dbFunctions.php';
                     data: 'cne=' + cne
                 }).done(function(response) {
                     // NOM
-                    console.log(response)
+                    //console.log(response)
                     array = response.split("#");
                     rep = JSON.parse(array[0]);
                     $("#nom").text(rep[0].nom);
@@ -38,33 +54,63 @@ include_once '../../../Traitement/dbFunctions.php';
                     $("#tbd").html("");
                     for (let i = 0; i < table.length; i++) {
                         $("#tbd").append("<tr><td>" + table[i].designation + "</td><td>" + table[i].note + "</td><td>" + table[i].Moyenne + "</td></tr>");
-                        somme += parseFloat(table[i].note);
-                        moyenneG += parseFloat(table[i].Moyenne);
+                        somme += parseFloat(table[i].Moyenne);
+                        moyenneG += parseFloat(table[i].note);
                     }
-
-                    $("#tbd").append('<tr class=""> <td scope = "row" > Moyenne Génerale </td> <td >' + somme + '</td> <td > ' + moyenneG + '</td>')
+                    moyenneG = moyenneG / table.length;
+                    $("#tbd").append('<tr class=""> <td scope = "row" > <b id="moy">Moyenne Génerale</b> </td> <td >' + moyenneG + '</td> <td > ' + somme + '</td>')
 
                 })
             })
+            $("#ar").click(function() {
+                if ($("#fillang").text() == "filiere") {
+                    $("#fillang").text("الشعبة");
+                    $("#codelang").text("الرقم البطاقة الوطنية");
+                    $("#langM").text("المادة");
+                    $("#langN").text("النقطة");
+                    $("#langR").text("الناتجة");
+                    $("#moy").text("المتوسط ​​العام");
+                    $("#nomP").text(": الإسم واللقب")
+                    $("#titre").text("مملكة المغرب")
+                    $("#btnP").text("الطباعة")
+                } else {
+                    $("#fillang").text("filiere");
+                    $("#codelang").text("Code National");
+                    $("#langM").text("Matière");
+                    $("#langN").text("Note");
+                    $("#langR").text("Résultat (V/NV/R)");
+                    $("#moy").text("Moyenne Génerale")
+                    $("#nomP").text("Nom et Prénom :")
+                    $("#titre").text("ROYAUME DU MAROC")
+                    $("#btnP").text("Imprime")
+                }
+            })
         })
+
+        function imprimer() {
+            document.getElementById("btnP").style.display = 'none';
+            window.print();
+            document.getElementById("btnP").style.display = 'block';
+        }
     </script>
     <center>
-        <h6><b>ROYAUME DU MAROC</b></h6>
+        <h6><b id="titre">ROYAUME DU MAROC</b></h6>
     </center>
     <form action="" method="post">
         <div class="row">
             <div class="col-9"></div>
-            <div class="col-3">Français / العربية</div>
+            <div class="col-3"><a id="ar" class="btn btn-link">Français/العربية</a> </div>
+        </div>
         </div>
         <br><br>
         <center>
             <div class="row">
-                <div class="col-4">Filière :</div>
+                <div class="col-4" id="fillang">filiere</div>
                 <div class="col-8">
-                    <select name="filiere" id="" class="form-control w-50">
+                    <select name="filiere" id="classe" class="form-control w-50">
                         <option value="" selected disabled>Filière</option>
                         <?php
-                        $cursor = getAllMatieres();
+                        $cursor = aficherClasses();
                         while ($row = $cursor->fetch()) {
                             echo ' <option value="' . $row[0] . '">' . $row[1] . '</option>';
                         }
@@ -75,61 +121,42 @@ include_once '../../../Traitement/dbFunctions.php';
             </div>
             <br>
             <div class="row">
-                <div class="col-4">Code National :</div>
+                <div class="col-4" id="codelang">Code National :</div>
                 <div class="col-8">
                     <select name="cne" id="cne" class="form-control w-50">
-                        <option value="" selected disabled>Code National</option>
-                        <?php
-                        $cursor = getAllEtudiants();
-                        while ($row = $cursor->fetch()) {
-                            echo ' <option value="' . $row[0] . '">' . $row[0] . '</option>';
-                        }
-                        ?>
+
+
                     </select>
                 </div>
             </div>
             <br>
-            <label for="" class="form-label"> Nom et Prénom :</label>
-
-            <label class="form-label" id="nom"></label>
+            <label for="" class="form-label" id="nomP"> Nom et Prénom :</label>
+            <p class="form-label" id="nom"></p>
             <br>
-
         </center>
         <!-- <input type="submit" value="Afficher" name="submit"> -->
-        <div class="table">
-            <table class="table table-light">
-                <thead>
-                    <tr>
-                        <th scope="col">Matière</th>
-                        <th scope="col">Note</th>
-                        <th scope="col">Résultat (V/NV/R)</th>
-                    </tr>
-                </thead>
-                <tbody id="tbd">
-                    <!-- <?php
-                            // if (isset($_POST["submit"])) {
-                            //     $cne = $_POST["cne"];
-                            //     $cursor = getBulletin($cne);
-                            //     while ($row = $cursor->fetch()) {
-                            //         echo '<tr class="">
-                            //     <td scope="row">' . $row[0] . '</td>
-                            //     <td>' . $row[1] . '</td>
-                            //     <td>' . $row[2] . '</td>
-                            // </tr>';
-                            //     }
-                            // }
-                            ?> -->
-
-                    <!-- <tr class="">
-                        <td scope="row">Moyenne Génerale</td>
-                        <td>Item</td>
-                        <td>Item</td>
-                    </tr> -->
-                </tbody>
-            </table>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <div class="table">
+                    <table class="table table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col" id="langM">Matière</th>
+                                <th scope="col" id="langN">Note</th>
+                                <th scope="col" id="langR">Résultat (V/NV/R)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbd">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-1"></div>
         </div>
-        <center><button class="btn btn-outline-dark" onclick="window.print()">Imprime</button></center>
     </form>
+    <center><button class="btn btn-outline-dark" id="btnP" onclick="imprimer()">Imprime</button></center>
+
 </body>
 
 </html>
