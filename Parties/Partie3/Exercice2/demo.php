@@ -12,10 +12,12 @@ if (isset($_POST["submit1"])) {
     if ($nom != "") {
         $extension = explode(".", $nom);
         if ($extension[1] == "txt") {
+            move_uploaded_file($_FILES["file"]["tmp_name"], dirname(__FILE__) . '../../documents/' . $nom);
             $lire = afficherFichier($nom);
         } else
             echo "extension invalide";
     }
+
     /**************************Code fonction chargerFichier1 utiliser*************************/
     /*
 function afficherFichier1($ch)
