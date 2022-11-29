@@ -1,16 +1,14 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
 
-//  $filliere="";
-//  $numC="";
- $codeC="";
-if (isset($_GET['codeC'])){
-    $codeC=$_GET['codeC'];
-    //aficherClassesCode($codeC);
+
+  $codeMat="";
+if (isset($_GET['codeMat'])){
+    $codeMat=$_GET['codeMat'];
 }
 if(isset($_POST["submit"])){
-    supprimerClasse($codeC);
-    header("location: ./afficherClasses.php");
+    removeMatiere($codeMat);
+    header("location: ./afficherMatieres.php?");
 }
 
 ?>
@@ -29,7 +27,7 @@ if(isset($_POST["submit"])){
 
 
 <div class="exe2">
-    <h2>Supprimer Classe <?php echo $codeC;?></h2>
+    <h2>Supprimer Classe <?php echo $codeMat;?></h2>
     <hr>
     <form action="" method="post">
         <div class='overflow-x-auto w-full text-center d-flex flex-column justify-content-between align-items-center' style="height:100px" >

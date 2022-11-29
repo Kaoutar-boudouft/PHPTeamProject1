@@ -38,7 +38,7 @@ if (isset($_GET['codeMat'])){
 <div class="exe2">
     <h2>Modifier la matiere avec le code <?php echo $codeMat;?></h2>
     <hr>
-    <form action="./showAll.php" method="post">
+    <form action="./afficherMatieres.php" method="post">
         <label class="form-label"> Code Matiere : </label> <input type="text" readonly  placeholder="Txt" name="codeMatM" class="form-control w-50" value="<?= $codeMat ?>"/>
         <label class="form-label"> Designation : </label> <input type="text" placeholder="X" name="designationM" class="form-control w-50" value="<?= $designation ?>"/>
         <input type="submit" value="Modifier" name="submit" class="btn btn-primary mt-3"><br><br>

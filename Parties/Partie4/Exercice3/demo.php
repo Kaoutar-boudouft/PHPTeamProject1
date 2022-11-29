@@ -65,7 +65,7 @@ include_once '../../../Traitement/dbFunctions.php';
             $("#ar").click(function() {
                 if ($("#fillang").text() == "filiere") {
                     $("#fillang").text("الشعبة");
-                    $("#codelang").text("الرقم البطاقة الوطنية");
+                    $("#codelang").text("رقم البطاقة الوطنية");
                     $("#langM").text("المادة");
                     $("#langN").text("النقطة");
                     $("#langR").text("الناتجة");

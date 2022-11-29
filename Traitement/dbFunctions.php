@@ -107,7 +107,7 @@ function SupprimerNote($codeMat, $cne)
     $req = "delete from notes where codeMat='$codeMat' and CNE='$cne'";
     return miseajour($req);
 }
-
+//tableEtudiantns
 function getAllEtudiants()
 {
     $req = "select * from etudiants";

@@ -11,7 +11,6 @@ if (isset($_GET['codeC'])){
     $numC=$res[1];
 }
 if(isset($_POST['codeC']) && isset($_POST['filiere']) && isset($_POST['numC'])){
-    echo('dsds');
     modifierClasse($_POST['codeC'],$_POST['filiere'],$_POST['numC']);
     header("location: ./afficherClasses.php");
 

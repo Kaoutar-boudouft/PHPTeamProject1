@@ -15,15 +15,15 @@ function getAllMatieres(){
 }
  */
 
-if (isset($_GET['codeMat'])) {
-    $res = removeMatiere($_GET['codeMat']);
-    /* if ($res==1){
-        echo "La matiere avec le code ".$_GET['codeMat']." a été supprimée!";
-    }
-    else{
-        echo "erreur a l'hors de suppression";
-    }*/
-}
+// if (isset($_GET['codeMat'])) {
+//     $res = removeMatiere($_GET['codeMat']);
+//     /* if ($res==1){
+//         echo "La matiere avec le code ".$_GET['codeMat']." a été supprimée!";
+//     }
+//     else{
+//         echo "erreur a l'hors de suppression";
+//     }*/
+// }
 
 ?>
 <!DOCTYPE HTML>
@@ -60,7 +60,7 @@ if (isset($_GET['codeMat'])) {
                 if (isset($_POST['codeMatM'])) {
                     $res = updateMatiere($_POST['codeMatM'], $_POST['designationM']);
                     if ($res==1){
-                        echo "<p class='pb-1'>Matiere ".$_POST['designationA']." a été bien modifier !</p><br>";
+                        echo "<p class='pb-1'>Matiere ".$_POST['designationM']." a été bien modifier !</p><br>";
                     }
                     else{
                         echo "<p class='pb-1'>probleme a lhors de modification svp ressayer dans qq minutes</p><br>";
@@ -88,7 +88,7 @@ if (isset($_GET['codeMat'])) {
                     <td class="px-6 py-4 text-center mx-auto text-center"> ' . $row[1] . ' </td>
                         <td class="pt-2 text-center" > <span class="badge badge-primary text-white  bg-primary font-semibold px-2 rounded-full w-100"> <a style="text-decoration: none;color: white" href="./modifierMatiere.php?codeMat=' . $row[0] . '" >Modifier</a><br>
                         </span><br><span class="badge badge-secondary text-white text-sm w-1/3 pb-1 bg-secondary font-semibold px-2 rounded-full w-100">
-                        <a style="text-decoration: none;color: white"  href="afficherMatieres.php?codeMat=' . $row[0] . '" >Supprimer</a></span>  </td>
+                        <a style="text-decoration: none;color: white"  href="suppMat.php?codeMat=' . $row[0] . '" >Supprimer</a></span>  </td>
                 </tr>');
                         }
                         ?>
