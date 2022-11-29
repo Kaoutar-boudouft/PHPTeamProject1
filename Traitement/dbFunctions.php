@@ -107,12 +107,46 @@ function SupprimerNote($codeMat, $cne)
     $req = "delete from notes where codeMat='$codeMat' and CNE='$cne'";
     return miseajour($req);
 }
+
+/*-------------------------------------------------------------------------------------*/
 //tableEtudiantns
 function getAllEtudiants()
 {
     $req = "select * from etudiants";
     return selection($req);
 }
+
+function AjouterEtudiant($CNE, $nom, $codeClasse)
+{
+    $req = "insert into etudiants values('$CNE','$nom',$codeClasse)";
+    return miseajour($req);
+}
+
+function ModifierEtudiant($CNE, $nom, $codeClasse)
+{
+    $req = "update etudiants set nom='$nom' , codeClasse='$codeClasse' where CNE=$CNE  ";
+    return miseajour($req);
+}
+
+function SupprimerEtudiant($CNE)
+{
+    $req = "delete from etudiants where CNE='$CNE'";
+    return miseajour($req);
+}
+
+// function afficherEtudiantParCNE($CNE)
+// {
+//     $req = "select * from etudiants where CNE='$CNE'";
+//     $arr = [];
+//     $cursor = selection($req);
+//     while ($row = $cursor->fetch()) {
+//         $arr[0] = $row[1];
+//         $arr[1] = $row[2];
+//     }
+//     $cursor->closeCursor();
+//     return $arr;
+// }
+/*-------------------------------------------------------------------------------------*/
 
 function getMatierParCNE($cne)
 {

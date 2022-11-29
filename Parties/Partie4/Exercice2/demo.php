@@ -76,9 +76,9 @@ include_once '../../../Traitement/dbFunctions.php';
                                 </div>
                             </td>
                             <td class="pt-2">
-                                <span class="badge badge-primary text-white text-sm w-1/3 pb-1 bg-primary font-semibold px-2 rounded-full w-100"><a style="text-decoration: none;color: white" href="">Afficher</a></span><br>
+                                <span class="badge badge-primary text-white text-sm w-1/3 pb-1 bg-primary font-semibold px-2 rounded-full w-100"><a style="text-decoration: none;color: white" href="./EtudiantsManagement/afficherEtudiants.php">Afficher</a></span><br>
 
-                                <span class="badge badge-secondary text-white  bg-secondary font-semibold px-2 rounded-full w-100"> <a style="text-decoration: none;color: white" href="">Ajouter</a><br></span>
+                                <span class="badge badge-secondary text-white  bg-secondary font-semibold px-2 rounded-full w-100"> <a style="text-decoration: none;color: white" href="./EtudiantsManagement/ajouterEtudiant.php">Ajouter</a><br></span>
                             </td>
                             <td class="px-6 py-4 text-center"><?php
                                                                 echo getRowsCount("etudiants");
