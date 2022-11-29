@@ -11,7 +11,7 @@ include_once '../../../Traitement/dbFunctions.php';
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../jquery-3.6.0.js"></script>
+    <script src="../../../resources/bootstrap-5.1.3-dist/js/jquery-3.6.0.js"></script>
 </head>
 
 <body>
@@ -53,12 +53,13 @@ include_once '../../../Traitement/dbFunctions.php';
                     moyenneG = 0;
                     $("#tbd").html("");
                     for (let i = 0; i < table.length; i++) {
-                        $("#tbd").append("<tr><td>" + table[i].designation + "</td><td>" + table[i].note + "</td><td>" + table[i].Moyenne + "</td></tr>");
+                        $("#tbd").append("<tr><td>" + table[i].designation + "</td><td>" + table[i].note + "</td><td>" + (table[i].note>=10?'V':(table[i].note>=5?'R':"NV")) + "</td></tr>");
                         somme += parseFloat(table[i].Moyenne);
                         moyenneG += parseFloat(table[i].note);
+
                     }
                     moyenneG = moyenneG / table.length;
-                    $("#tbd").append('<tr class=""> <td scope = "row" > <b id="moy">Moyenne Génerale</b> </td> <td >' + moyenneG + '</td> <td > ' + somme + '</td>')
+                    $("#tbd").append('<tr class=""> <td scope = "row" > <b id="moy">Moyenne Génerale</b> </td> <td >' + moyenneG + '</td> <td > ' + (moyenneG>=10?"V":"NV") + '</td>')
 
                 })
             })

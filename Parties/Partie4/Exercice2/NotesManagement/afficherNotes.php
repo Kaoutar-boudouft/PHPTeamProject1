@@ -73,7 +73,7 @@ function SupprimerNote($codeMat, $cne)
                         <span class="badge badge-primary text-white  bg-primary font-semibold px-2 rounded-full w-100">
                          <a style="text-decoration: none;color: white" href="modifierNote.php?codeMat=' . $row[0] . '&&cne=' . $row[1] . '&&note=' . $row[2] . '" >Modifier</a><br>
                         </span><br><span class="badge badge-secondary text-white text-sm w-1/3 pb-1 bg-secondary font-semibold px-2 rounded-full w-100">
-                        <a style="text-decoration: none;color: white"  href="afficherNotes.php?codeMat=' . $row[0] . '&&cne=' . $row[1] . '" >Supprimer</a></span>  </td>
+                        <a style="text-decoration: none;color: white"  href="supprimerNotes.php?codeMat=' . $row[0] . '&&cne=' . $row[1] . '" >Supprimer</a></span>  </td>
                 </tr>');
                         }
                         ?>

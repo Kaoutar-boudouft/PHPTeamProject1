@@ -31,7 +31,7 @@ if(isset($_POST["submit"])){
     <hr>
     <form action="" method="post">
         <div class='overflow-x-auto w-full text-center d-flex flex-column justify-content-between align-items-center' style="height:100px" >
-            <label class="form-label text-warning h3"> Voullez-vous vraiment supprimer cette classe! </label>
+            <label class="form-label text-warning h3"> Voullez-vous vraiment supprimer cette matiere! </label>
             <input type="submit" value="Accepter" name="submit" class="btn btn-primary w-25">
         </div>
     </form>
