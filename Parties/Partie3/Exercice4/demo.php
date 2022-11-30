@@ -10,9 +10,19 @@ include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
 */
 
 if (isset($_POST["submit"])) {
-    $ch1 = $_POST["fch1"];
-    $ch2 = $_POST["fch2"];
-    monFichier2($ch1,$ch2);
+    $fch1 = $_FILES['fch1']['name'];
+    $fch2 = $_FILES['fch2']['name'];
+    if ($fch1 != "" && $fch2 != "") {
+        $extension1 = explode(".", $fch1);
+        $extension2 = explode(".", $fch2);
+
+        if ($extension1[1] == "txt" && $extension2[1] == "txt") {
+            move_uploaded_file($_FILES["fch1"]["tmp_name"], dirname(__FILE__) . '../../documents/' . $fch1);
+            move_uploaded_file($_FILES["fch1"]["tmp_name"], dirname(__FILE__) . '../../documents/' . $fch2);
+           monFichier2(dirname(__FILE__) . '../../documents/' . $fch1,dirname(__FILE__) . '../../documents/' . $fch2);
+        } else
+            echo "extension invalide";
+    }
 }
 
 ?>
@@ -34,7 +44,7 @@ if (isset($_POST["submit"])) {
     <div class="col">
         <h3>Exercice 4</h3>
         <hr>
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
 
             <input type="file" name="fch1" id="folder-opener" class="form-control w-50" accept=".txt" capture="C"></br>
             <input type="file" name="fch2" id="folder-opener" class="form-control w-50" accept=".txt" capture="C">

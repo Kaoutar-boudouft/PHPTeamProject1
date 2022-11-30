@@ -1,13 +1,20 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
-
+/**************************Code fonction supprimerMatiere utiliser*************************/
+/*
+function supprimerMatiere($codeMat)
+{
+    $req = "delete from matieres where codeMat='$codeMat'";
+    return miseajour($req);
+}
+ */
 
   $codeMat="";
 if (isset($_GET['codeMat'])){
     $codeMat=$_GET['codeMat'];
 }
 if(isset($_POST["submit"])){
-    removeMatiere($codeMat);
+    supprimerMatiere($codeMat);
     header("location: ./afficherMatieres.php?");
 }
 

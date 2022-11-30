@@ -1,0 +1,26 @@
+-create fresh laravel project:
+curl -s https://laravel.build/laravelTest | bash
+
+-add to .env:
+WWWGROUP=1000
+WWWUSER=1000
+
+-build project:
+docker compose up -d --build
+
+-run container on spesific port:
+docker run -p 81:80 sail-8.1/app
+
+-showing running containers:
+docker ps
+
+-showing all containers:
+docker ps -a
+
+-showing all images:
+docker images
+
+execute mysql :
+docker logs 2707e6e982f4
+docker exec -it 2707e6e982f4 mysql -p
+

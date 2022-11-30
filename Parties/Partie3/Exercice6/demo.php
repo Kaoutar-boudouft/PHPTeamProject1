@@ -7,7 +7,7 @@
     <body>
         <form  method="post" enctype="multipart/form-data">
             <h1>Exercice 6</h1><hr>
-            <div class="row"> <label>Choisir un fichier</label> <br><input type="file" name="File" accept=".txt"></div>
+            <div class="row"> <label>Choisir un fichier</label> <br><input type="file" name="File" accept=".txt" class="form-control w-50"></div>
             <input type="submit" value="submit" name="submit" class="btn btn-primary mt-4"><br></div>
         </form>
     </body>
@@ -40,9 +40,9 @@ include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
         
         if($fileExtension=="txt"&& $filesize<10000){
             if(!empty($file)){
-                move_uploaded_file($_FILES["File"]["tmp_name"], "../Exercice5/uploads/" . $file);
+                move_uploaded_file($_FILES["File"]["tmp_name"], dirname(__FILE__) . '../../documents/' . $file);
                 //copy($_FILES["File"]["tmp_name"], "uploads/" . $file);
-                    $res=Calculer2("../Exercice5/uploads/" . $file);
+                    $res=Calculer2(dirname(__FILE__) . '../../documents/' . $file);
                     echo "<p>nombres des chiffres trouvés: ".$res['nNumbers']."<br>nombres des lettres trouvées: ".$res['nChar']."</p>";
                 }
         }else {

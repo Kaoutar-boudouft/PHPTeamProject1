@@ -1,1 +1,78 @@
-hello word
+-composition de systéme d'éxploitation GNU/LINUX:
+*Application GNU: interface graphique
+*Noyau: Linux systeme
+
+-les fichiers en linux sont organisée dune facone arborescence
+
+-types de fichiers sous linux:
+*Normal:fichier,audio,image,video..
+*répertoire:ensemble d'information permetant l'acces au autres fichiers
+*spéciale:dispositif d'entée "terminal,lecteur"
+
+-notation spécial en linux:
+*Racine:/
+*Personnel:~
+*Courant:.
+*Parent:..
+
+-Généralités:
+*[Linux @ course ~]$ avec : 
+Linux=>votre nom d'utilisateur
+course=>le nom de votre machine
+@=>séparateur
+~=>le repertoire au vous vous situez
+$=>indique votre niveau d'autorisation : $=>utilisateur normal / #=>utilisateur root
+
+-Linux Basic Commands:
+*CD:"changer le repertoire"
++CD   :repertoire personnel
++CD.. :repertoire parent
++CD home/images :a ce dossier
+
+*PWD:"obtenir le chemin absolue de repertoire actuelle"
+
+*Mkdir: "créer nouveu dossier"
++Mkdir NomDeDossier1 NomDeDossier2 ... 			        =>créer un ou plusieurs simples dossiers
++mkdir -p courses/stage/docs courses/linux/server /courses/math =>créer dossiers complexe avec sous dossiers
+
+*touch:"créer nouveau fichier"
++touch fichier1 fichier2
+
+*cat:"créer et ecrire dans un nouveau fichier"
++cat > fichier 'et clicker sur entrer aprés ecrire ce que vous voulez et enfin clicker sur ctrl+d pour fermer et enregistere'
+
+*LS:"lister"
++Ls:"permet d'afficher le contenue de votre repertoire actuelle"
++Ls -l:" permet d'afficher les details du contenue de votre repertoire actuelle"
+
+*rm:"supprimer"
++rm nomDeFichier:"supprimer un dossier"
++rm -r nomDeDossier:"supprimer un dossier"
++rm -rf nomDossiers:"supprimer un dossier avec ses sous Dossiers et fichiers"
+
+*MV:"déplacer"
++mv test courses:"déplacer le fichier linux vers le dossier courses"
++mv photo music:"renommer le dossier photo par le nom music"
+
+*CP:"copier"
++cp docs stage:"créer une copier de fichier docs dans le dossier stage"
++cp -r Dossier1 stage:"créer une copier de dossier1 avec se racines dans le dossier stage"
++cp -a fichier stage:"créer une copier de fichier dans le dossier stage tout en concervent ses caractéristiques comme date etc.."
+
+*WC:"calculer le nombre des lignes,mots,taille d'un fichier"
++Wc -l fichier :"n de lignes"
++Wc -w fichier :"n de mots"
++Wc -c fichier :"la taille"
+
+*Head:"les premieres lignes d'un fichier"
++Head -unNombreIci fichier
+
+*Tail:"les dernieres lignes d'un fichier"
++Tail -unNombreIci fichier
+
+*grep:"chercher dans un fichier"
++grep -c b docs:"chercher le nombre des lignes contiennet des b dans le fichier docs"
++grep -i b docs:"retourner les lignes contiennet un b que ca soit majiscule ou bien miniscule"
++grep -n b docs:"retourner l'ordre de ligne et la ligne qui contient b il respect le miniscule et le maj"
++grep -v b docs:"retourner les lignes qui ne contiennet pas b"
+

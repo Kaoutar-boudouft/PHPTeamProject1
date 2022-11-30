@@ -51,8 +51,11 @@ include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
                 <label class="form-label" for="">Mot :</label>
                 <input type=" text" name="mot" id="" class="form-control w-50"><br>
                 <input type="submit" value="Chercher" name="submit" class="btn btn-primary mt-3">
-                <p><?php echo "le nombre d’occurrences d’un mot $mot est $c" ?></p>
-
+                <?php
+                if ($mot != ""){
+                echo "<p>le nombre d’occurrences de mot $mot est $c</p>" ;
+                }
+                ?>
             </form>
         </div>
     </div>

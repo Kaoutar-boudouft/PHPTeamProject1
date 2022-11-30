@@ -37,12 +37,13 @@ if(isset($_POST['cne']) && isset($_POST['nom']) && isset($_POST['codeclasse'])){
         <label class="form-label"> Nom : </label> <input type="text"  name="nom" class="form-control w-50" value=""/>
         <label class="form-label"> Code Classe : </label>         
         <select name="codeclasse" id="codeclasse" class="form-control w-50">
-            <option value="" selected disabled>CNE</option>
+            <option value="" selected disabled>Code Classe</option>
             <?php
             $cursor = aficherClasses();
             while ($row = $cursor->fetch()) {
                 echo '<option value="' . $row[0] . '">' . $row[0] . '</option>';
             }
+            $cursor->closeCursor();
             ?>
         </select>
         <input type="submit" value="Ajouter" name="submit" class="btn btn-primary mt-3"><br><br>

@@ -9,8 +9,6 @@ include_once '../../../../Traitement/dbFunctions.php';
     }
 
     ------------------ Fonction Modifier Etudiant -----------------------
-
-
 */
 $cne = $_GET["CNE"];
 $nom = $_GET["nom"];
@@ -43,7 +41,18 @@ if (isset($_POST["submit"]) && isset($_POST['cne']) && isset($_POST['nom']) && i
     <form action="" method="post">
         <label class="form-label"> CNE : </label> <input type="text" readonly  placeholder="CNE" name="cne" class="form-control w-50" value="<?= $cne ?>"/>
         <label class="form-label"> Nom : </label> <input type="text" placeholder="Nom" name="nom" class="form-control w-50" value="<?= $nom ?>"/>
-        <label class="form-label"> Code classe : </label> <input type="text" placeholder="Code Classe" name="codeclasse" class="form-control w-50" value="<?= $codeclasse ?>"/>
+        <label class="form-label"> Code classe : </label>
+        <select  name="codeclasse" class="form-control w-50">
+            <?php
+            $cursor=aficherClasses();
+            while ($row=$cursor->fetch()){
+                ?>
+               <option <?php echo(($row[0]==$codeclasse?'selected':''));?> value='<?=$row[0]?>'><?=$row[1]?></option>"
+            <?php
+            }
+            $cursor->closeCursor();
+            ?>
+        </select>
         <input type="submit" value="Modifier" name="submit" class="btn btn-primary mt-3"><br><br>
     </form>
     <a href="codesource.php?page=modifierEtudiant.php" class="btn btn-link">Voir le code source ici</a>

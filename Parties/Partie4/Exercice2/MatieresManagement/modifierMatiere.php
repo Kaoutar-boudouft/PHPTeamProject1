@@ -1,8 +1,8 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
-/**************************Code fonction getMatiereByCodeMat utiliser*************************/
+/**************************Code fonction afficherMatireParCodeMat utiliser*************************/
 /*
- function getMatiereByCodeMat($codeMat){
+ function afficherMatireParCodeMat($codeMat){
     $req="select * from matiere where codeMat='$codeMat'";
     $designation="";
     $cursor=selection($req);
@@ -17,7 +17,7 @@ include_once '../../../../Traitement/dbFunctions.php';
  $codeMat="";
 if (isset($_GET['codeMat'])){
     $codeMat=$_GET['codeMat'];
-    $designation=getMatiereByCodeMat($codeMat);
+    $designation=afficherMatireParCodeMat($codeMat);
 }
 
 ?>

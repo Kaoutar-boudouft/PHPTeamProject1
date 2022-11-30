@@ -1,29 +1,28 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
-/**************************Code fonction getAllMatieres utiliser*************************/
+/**************************Code fonction afficherMatieres utiliser*************************/
 /*
-function getAllMatieres(){
+function afficherMatieres(){
     $req="select * from matieres";
     return selection($req);
 }
  */
-/**************************Code fonction removeMatiere utiliser*************************/
+/**************************Code fonction ajouterMatiere utiliser*************************/
 /*
- function removeMatiere($codeMat){
-    $req="delete from matieres where codeMat='$codeMat'";
+function ajouterMatiere($codeMat, $designation)
+{
+    $req = "insert into matieres values('$codeMat','$designation')";
     return miseajour($req);
 }
  */
-
-// if (isset($_GET['codeMat'])) {
-//     $res = removeMatiere($_GET['codeMat']);
-//     /* if ($res==1){
-//         echo "La matiere avec le code ".$_GET['codeMat']." a été supprimée!";
-//     }
-//     else{
-//         echo "erreur a l'hors de suppression";
-//     }*/
-// }
+/**************************Code fonction modifierMatiere utiliser*************************/
+/*
+function modifierMatiere($codeMat, $newDesignation)
+{
+    $req = "update matieres set designation='$newDesignation' where codeMat='$codeMat'";
+    return miseajour($req);
+}
+ */
 
 ?>
 <!DOCTYPE HTML>
@@ -49,18 +48,18 @@ function getAllMatieres(){
             <div class="col-12">
                 <?php
                 if (isset($_POST['codeMatA'])) {
-                    $res = addNewMatiere($_POST['codeMatA'], $_POST['designationA']);
+                    $res = ajouterMatiere($_POST['codeMatA'], $_POST['designationA']);
                     if ($res==1){
-                        echo "<p class='pb-1'>Matiere ".$_POST['designationA']." a été bien ajouter !</p><br>";
+                        echo "<p class='pb-1'>Matiere avec le code ".$_POST['codeMatA']." a été bien ajouter !</p><br>";
                     }
                     else{
-                        echo "<p class='pb-1'>Matiere ".$_POST['designationA']." a été ajouter deja!</p><br>";
+                        echo "<p class='pb-1'>Matiere avec le code ".$_POST['codeMatA']." a été deja ajouter!</p><br>";
                     }
                 }
                 if (isset($_POST['codeMatM'])) {
-                    $res = updateMatiere($_POST['codeMatM'], $_POST['designationM']);
+                    $res = modifierMatiere($_POST['codeMatM'], $_POST['designationM']);
                     if ($res==1){
-                        echo "<p class='pb-1'>Matiere ".$_POST['designationM']." a été bien modifier !</p><br>";
+                        echo "<p class='pb-1'>Matiere avec le code ".$_POST['codeMatM']." a été bien modifier !</p><br>";
                     }
                     else{
                         echo "<p class='pb-1'>probleme a lhors de modification svp ressayer dans qq minutes</p><br>";
@@ -79,7 +78,7 @@ function getAllMatieres(){
                     </thead>
                     <tbody class="divide-y divide-gray-200">
                         <?php
-                        $cursor = getAllMatieres();
+                        $cursor = afficherMatieres();
                         while ($row = $cursor->fetch()) {
                             echo (' <tr>
                     <td class="px-6 py-4 mx-auto text-center">                 

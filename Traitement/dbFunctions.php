@@ -10,13 +10,13 @@ function getRowsCount($tableName)
 }
 
 //Table Matieres
-function getAllMatieres()
+function afficherMatieres()
 {
     $req = "select * from matieres";
     return selection($req);
 }
 
-function getMatiereByCodeMat($codeMat)
+function afficherMatireParCodeMat($codeMat)
 {
     $req = "select * from matieres where codeMat='$codeMat'";
     $designation = "";
@@ -28,19 +28,19 @@ function getMatiereByCodeMat($codeMat)
     return $designation;
 }
 
-function addNewMatiere($codeMat, $designation)
+function ajouterMatiere($codeMat, $designation)
 {
     $req = "insert into matieres values('$codeMat','$designation')";
     return miseajour($req);
 }
 
-function removeMatiere($codeMat)
+function supprimerMatiere($codeMat)
 {
     $req = "delete from matieres where codeMat='$codeMat'";
     return miseajour($req);
 }
 
-function updateMatiere($codeMat, $newDesignation)
+function modifierMatiere($codeMat, $newDesignation)
 {
     $req = "update matieres set designation='$newDesignation' where codeMat='$codeMat'";
     return miseajour($req);
@@ -118,13 +118,13 @@ function getAllEtudiants()
 
 function AjouterEtudiant($CNE, $nom, $codeClasse)
 {
-    $req = "insert into etudiants values('$CNE','$nom',$codeClasse)";
+    $req = "insert into etudiants values('$CNE','$nom','$codeClasse')";
     return miseajour($req);
 }
 
 function ModifierEtudiant($CNE, $nom, $codeClasse)
 {
-    $req = "update etudiants set nom='$nom' , codeClasse='$codeClasse' where CNE=$CNE  ";
+    $req = "update etudiants set nom='$nom' , codeClasse='$codeClasse' where CNE='$CNE'  ";
     return miseajour($req);
 }
 

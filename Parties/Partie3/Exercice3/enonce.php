@@ -1,4 +1,4 @@
-<h2>Exercice 1</h2>
+<h2>Exercice 3</h2>
 <hr>
 <p>Ecrire une fonction monFichier1(ch) qui reçoit en paramètre un nom de fichier.
     <br>
