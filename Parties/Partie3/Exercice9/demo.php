@@ -1,16 +1,16 @@
 <?php
 include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
-/**************************Code fonction inverserFichier($ch1,$ch2)  utiliser*************************/
+/**************************Code fonction inverserFichier($ch1,$ch2)  utiliser *************************/
 /*
     function inverserFichier($ch1,$ch2)
     {
         $file = file($ch1); # kay3tini un tableau de ligne 
         $contenu = "";
-        for ($ligne = count($file)-1; $ligne >= 0 ; $ligne--) # ghdi nmchi bl3ks ghdi nbda b ligne 10 w an habta 7ta L 0
+        for ($ligne = count($file)-1; $ligne >= 0 ; $ligne--) 
         { 
-            $tableau = explode(" ",$file[$ligne]); # je decompose dak les (lignes) en un tableau de mots
+            $tableau = explode(" ",$file[$ligne]); 
 
-            for ($mot = count($tableau)-1; $mot >= 0 ; $mot--) # ghdi nakhd akhir mot kayn f ligne 10 w mn b3d le mot li 9bl lkhr 7ta nwsl ligne 0
+            for ($mot = count($tableau)-1; $mot >= 0 ; $mot--) 
             { 
                 $contenu .= $tableau[$mot]." "; 
             }
