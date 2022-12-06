@@ -44,9 +44,9 @@ function creerFichier($ch)
         <hr>
         <form action="" method="post">
             <label class="form-label" for="">Nom du fichier :</label>
-            <input type=" text" name="nom" id="" class="form-control w-50" value="<?php echo $ch ?>">
+            <input type=" text" name="nom" id="" class="form-control w-50" value="">
             <label class="form-label">Contenu :</label>
-            <textarea name="contenu" id="" class="form-control w-50" cols="10" rows="3"><?php echo $contenu ?></textarea>
+            <textarea name="contenu" id="" class="form-control w-50" cols="10" rows="3"></textarea>
             <input type="submit" value="Envoyer" name="submit" class="btn btn-primary mt-3">
         </form>
     </div>

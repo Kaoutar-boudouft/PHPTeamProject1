@@ -1,5 +1,28 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
+/**************************Code fonction aficherClassesCode utiliser*************************/
+/*
+ function aficherClassesCode($codeC)
+{
+    $req = "select * from classes where codeClasse='$codeC'";
+    $arr = [];
+    $cursor = selection($req);
+    while ($row = $cursor->fetch()) {
+        $arr[0] = $row[1];
+        $arr[1] = $row[2];
+    }
+    $cursor->closeCursor();
+    return $arr;
+}
+ */
+/**************************Code fonction modifierClasse utiliser*************************/
+/*
+ function modifierClasse($codeClasse, $filiere, $num)
+{
+    $req = "update classes set filier='$filiere', num='$num' where codeClasse='$codeClasse'";
+    return miseajour($req);
+}
+ */
 
  $filliere="";
  $numC="";

@@ -2,7 +2,15 @@
 <html>
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
+/**************************Code fonction aficherClasses utiliser*************************/
 
+/*
+ function aficherClasses()
+{
+    $req = 'select * from classes';
+    return selection($req);
+}
+ */
 ?>
 
 <head>

@@ -1,6 +1,13 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
-
+/**************************Code fonction ajouterClasse utiliser*************************/
+/*
+ function ajouterClasse($codeClasse, $filiere, $num)
+{
+    $req = "insert into classes values('$codeClasse','$filiere', '$num')";
+    return miseajour($req);
+}
+ */
 if(isset($_POST['codeC']) && isset($_POST['filiere']) && isset($_POST['numC'])){
     ajouterClasse($_POST['codeC'],$_POST['filiere'],$_POST['numC']);
     header("location: ./afficherClasses.php");

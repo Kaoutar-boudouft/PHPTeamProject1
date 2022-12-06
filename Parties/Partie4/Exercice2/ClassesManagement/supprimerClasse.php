@@ -1,5 +1,14 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
+/**************************Code fonction supprimerClasse utiliser*************************/
+/*
+ function supprimerClasse($codeClasse)
+{
+    $req = "delete from classes where codeClasse='$codeClasse'";
+    return miseajour($req);
+}
+ */
+
 
 //  $filliere="";
 //  $numC="";

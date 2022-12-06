@@ -49,21 +49,9 @@ function modifierMatiere($codeMat, $newDesignation)
                 <?php
                 if (isset($_POST['codeMatA'])) {
                     $res = ajouterMatiere($_POST['codeMatA'], $_POST['designationA']);
-                    if ($res==1){
-                        echo "<p class='pb-1'>Matiere avec le code ".$_POST['codeMatA']." a été bien ajouter !</p><br>";
-                    }
-                    else{
-                        echo "<p class='pb-1'>Matiere avec le code ".$_POST['codeMatA']." a été deja ajouter!</p><br>";
-                    }
                 }
                 if (isset($_POST['codeMatM'])) {
                     $res = modifierMatiere($_POST['codeMatM'], $_POST['designationM']);
-                    if ($res==1){
-                        echo "<p class='pb-1'>Matiere avec le code ".$_POST['codeMatM']." a été bien modifier !</p><br>";
-                    }
-                    else{
-                        echo "<p class='pb-1'>probleme a lhors de modification svp ressayer dans qq minutes</p><br>";
-                    }
                 }
                 ?>
             </div>

@@ -174,7 +174,7 @@ function compterVille($V, $Info)
     $count = 0;
     foreach ($Info as $key => $value) {
         $ville = trim($Info[$key][1]);
-        if ($ville == ucfirst(strtolower($V))) {
+        if (strtolower($ville) == strtolower($V)) {
             $count++;
         }
     }
@@ -199,7 +199,7 @@ function distrubuerVille($Info)
         fwrite($file, $key . "     " . $Info[$key][0] . $spaces . ucfirst(strtolower($Info[$key][1])));
         fclose($file);
     }
-    return array(1, "les informations des produits de chaque ville dans un fichier à part !");
+    return array(1, "les informations des produits de chaque ville sont été distribuées dans un fichier à part !");
 }
 
 
@@ -307,17 +307,28 @@ function Calculer3($ch)
 }
 
 //Exercice 8 partie 3
-function chercherMot($ch, $mot)
-{
-    $contenu = afficherFichier($ch);
-    $m = explode(' ', $contenu);
-    $c = 0;
-    foreach ($m as $key => $value) {
-        if ($value == $mot) {
-            $c++;
+function chercherMot($ch,$mot){
+    $file = fopen($ch, "r");
+    if (!$file){
+        echo "error";
+        return array(0,'File '.$ch.' opening filed !');
+    }
+    $delimiters=array(",",";","!","?","-","_");
+    $count=0;
+    while (!feof($file)) {
+        $line = fgets($file);
+        if($line!="") {
+            $newLine=str_replace($delimiters, " ", $line);
+            $words=explode(" ", $newLine);
+            foreach ($words as $word){
+                if (trim($word)==trim($mot)){
+                    $count++;
+                }
+            }
         }
     }
-    return $c;
+    fclose($file);
+    return $count;
 }
 
 //Exercice 9 partie 3

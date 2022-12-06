@@ -134,26 +134,12 @@ function SupprimerEtudiant($CNE)
     return miseajour($req);
 }
 
-// function afficherEtudiantParCNE($CNE)
-// {
-//     $req = "select * from etudiants where CNE='$CNE'";
-//     $arr = [];
-//     $cursor = selection($req);
-//     while ($row = $cursor->fetch()) {
-//         $arr[0] = $row[1];
-//         $arr[1] = $row[2];
-//     }
-//     $cursor->closeCursor();
-//     return $arr;
-// }
-/*-------------------------------------------------------------------------------------*/
-
+///PARTIE4 Exercie 3
 function getMatierParCNE($cne)
 {
     $req = "SELECT * from matieres where  codeMat not in(select codeMat from notes where CNE='$cne')";
     return selection($req);
 }
-///PARTIE4 Exercie 3
 function getAllEtudiantParCNE($cne)
 {
     $req = "select * from etudiants where CNE='$cne'";

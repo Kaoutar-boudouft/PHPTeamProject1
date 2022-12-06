@@ -1,8 +1,8 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
 
-/* ------------------- Fonction Modifier Etudiant -----------------------
-    function ModifierEtudiant($CNE, $nom, $codeClasse)
+/**************************Code fonction ModifierEtudiant utiliser*************************/
+/*    function ModifierEtudiant($CNE, $nom, $codeClasse)
     {
         $req = "update etudiants set nom='$nom' , codeClasse='$codeClasse' where CNE=$CNE  ";
         return miseajour($req);

@@ -2,7 +2,14 @@
 <html>
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
-
+/**************************Code fonction getAllEtudiants utiliser*************************/
+/*
+ function getAllEtudiants()
+{
+    $req = "select * from etudiants";
+    return selection($req);
+}
+ */
 ?>
 
 <head>

@@ -570,7 +570,7 @@
 <body>
     <div class="navbar">
         <div class="logo">
-            <a href="#home">LOGO</a>
+            <a href="#home"><img src="images/White%20logo%20-%20no%20background.svg" width="150px" height="50px"></a>
         </div>
         <div class="navLinks">
             <ul>

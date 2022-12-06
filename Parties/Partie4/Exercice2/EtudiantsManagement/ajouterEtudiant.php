@@ -1,8 +1,8 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
 
-/* ---------------------- Fonction Ajouter Etudiant ------------------------------
-    function AjouterEtudiant($CNE, $nom, $codeClasse)
+/**************************Code fonction AjouterEtudiant utiliser*************************/
+ /*   function AjouterEtudiant($CNE, $nom, $codeClasse)
     {
         $req = "insert into etudiants values('$CNE','$nom',$codeClasse)";
         return miseajour($req);

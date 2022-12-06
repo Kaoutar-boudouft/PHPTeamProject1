@@ -1,1 +1,156 @@
-hello word
+
+ 
+b"
+ pas contiennet ne qui lignes les docs:"retourner b -v +grep 
+maj"
+ le et miniscule le respect il b contient qui ligne la et ligne de l'ordre docs:"retourner b -n +grep 
+miniscule"
+ bien ou majiscule soit ca que b un contiennet lignes les docs:"retourner b -i +grep 
+docs"
+ fichier le dans b des contiennet lignes des nombre le docs:"chercher b -c +grep 
+fichier"
+ un dans *grep:"chercher 
+
+ 
+fichier
+ -unNombreIci +Tail 
+fichier"
+ d'un lignes dernieres *Tail:"les 
+
+ 
+fichier
+ -unNombreIci +Head 
+fichier"
+ d'un lignes premieres *Head:"les 
+
+ 
+taille"
+ :"la fichier -c +Wc 
+mots"
+ de :"n fichier -w +Wc 
+lignes"
+ de :"n fichier -l +Wc 
+fichier"
+ d'un lignes,mots,taille des nombre le *WC:"calculer 
+
+ 
+etc.."
+ date comme caractéristiques ses concervent en tout stage dossier le dans fichier de copier une stage:"créer fichier -a +cp 
+stage"
+ dossier le dans racines se avec dossier1 de copier une stage:"créer Dossier1 -r +cp 
+stage"
+ dossier le dans docs fichier de copier une stage:"créer docs +cp 
+*CP:"copier"
+ 
+
+ 
+music"
+ nom le par photo dossier le music:"renommer photo +mv 
+courses"
+ dossier le vers linux fichier le courses:"déplacer test +mv 
+*MV:"déplacer"
+ 
+
+ 
+fichiers"
+ et Dossiers sous ses avec dossier un nomDossiers:"supprimer -rf +rm 
+dossier"
+ un nomDeDossier:"supprimer -r +rm 
+dossier"
+ un nomDeFichier:"supprimer +rm 
+*rm:"supprimer"
+ 
+
+ 
+actuelle"
+ repertoire votre de contenue du details les d'afficher permet -l:" +Ls 
+actuelle"
+ repertoire votre de contenue le d'afficher +Ls:"permet 
+*LS:"lister"
+ 
+
+ 
+enregistere'
+ et fermer pour ctrl+d sur clicker enfin et voulez vous que ce ecrire aprés entrer sur clicker 'et fichier > +cat 
+fichier"
+ nouveau un dans ecrire et *cat:"créer 
+
+ 
+fichier2
+ fichier1 +touch 
+fichier"
+ nouveau *touch:"créer 
+
+ 
+dossiers
+ sous avec complexe dossiers =>créer /courses/math courses/linux/server courses/stage/docs -p +mkdir 
+dossiers
+ simples plusieurs ou un =>créer        			 ... NomDeDossier2 NomDeDossier1 +Mkdir 
+dossier"
+ nouveu "créer *Mkdir: 
+
+ 
+actuelle"
+ repertoire de absolue chemin le *PWD:"obtenir 
+
+ 
+dossier
+ ce :a home/images +CD 
+parent
+ :repertoire +CD.. 
+personnel
+ :repertoire   +CD 
+repertoire"
+ le *CD:"changer 
+Commands:
+ Basic -Linux 
+
+ 
+root
+ #=>utilisateur / normal $=>utilisateur : d'autorisation niveau votre $=>indique 
+situez
+ vous vous au repertoire ~=>le 
+@=>séparateur
+ 
+machine
+ votre de nom course=>le 
+d'utilisateur
+ nom Linux=>votre 
+
+ : avec ~]$ course @ *[Linux 
+-Généralités:
+ 
+
+ 
+*Parent:..
+ 
+*Courant:.
+ 
+*Personnel:~
+ 
+*Racine:/
+ 
+linux:
+ en spécial -notation 
+
+ 
+"terminal,lecteur"
+ d'entée *spéciale:dispositif 
+fichiers
+ autres au l'acces permetant d'information *répertoire:ensemble 
+*Normal:fichier,audio,image,video..
+ 
+linux:
+ sous fichiers de -types 
+
+ 
+arborescence
+ facone dune organisée sont linux en fichiers -les 
+
+ 
+systeme
+ Linux *Noyau: 
+graphique
+ interface GNU: *Application 
+GNU/LINUX:
+ d'éxploitation systéme de -composition 

@@ -1,6 +1,13 @@
 <?php
 include_once '../../../../Traitement/dbFunctions.php';
-
+/**************************Code fonction SupprimerEtudiant utiliser*************************/
+/*
+ function SupprimerEtudiant($CNE)
+{
+    $req = "delete from etudiants where CNE='$CNE'";
+    return miseajour($req);
+}
+ */
 
 $CNE="";
 if (isset($_GET['CNE'])){

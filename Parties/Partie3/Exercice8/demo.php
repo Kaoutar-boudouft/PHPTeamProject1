@@ -2,25 +2,37 @@
 include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
 /**************************Code fonction chercherMot($ch, $mot)  utiliser*************************/
 /*
-    function chercherMot($ch, $mot)
-    {
-        $contenu = afficherFichier1($ch);
-        $m = explode(' ', $contenu);
-        $c = 0;
-        foreach ($m as $key => $value){
-            if ($value == $mot) {
-                $c++;
+   function chercherMot($ch,$mot){
+    $file = fopen($ch, "r");
+    if (!$file){
+        echo "error";
+        return array(0,'File '.$ch.' opening filed !');
+    }
+    $delimiters=array(",",";","!","?","-","_");
+    $count=0;
+    while (!feof($file)) {
+        $line = fgets($file);
+        if($line!="") {
+            $newLine=str_replace($delimiters, " ", $line);
+            $words=explode(" ", $newLine);
+            foreach ($words as $word){
+                if (trim($word)==trim($mot)){
+                    $count++;
+                }
             }
         }
-        return $c;
     }
+    fclose($file);
+    return $count;
+}
 */
     $c = "";
     $mot = "";
     if (isset($_POST["submit"])) {
-        $ch = $_POST["fichier"];
+        $file=$_FILES['File']['name'];
+        move_uploaded_file($_FILES["File"]["tmp_name"], dirname(__FILE__) . '../../documents/' . $file);
         $mot = $_POST["mot"];
-        $c = chercherMot($ch , $mot);
+        $c = chercherMot(dirname(__FILE__) . '../../documents/' . $file , $mot);
     }
 
 ?>
@@ -45,9 +57,9 @@ include_once(dirname(__FILE__) . '../../../../Traitement/fonctions.php');
         <div class="col">
             <h3>Exercice 8</h3>
             <hr>
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data">
 
-                <input type="file" name="fichier" id="folder-opener" class="form-control w-50" accept=".txt" capture="C"></br>
+                <input type="file" name="File" id="folder-opener" class="form-control w-50" accept=".txt" capture="C"></br>
                 <label class="form-label" for="">Mot :</label>
                 <input type=" text" name="mot" id="" class="form-control w-50"><br>
                 <input type="submit" value="Chercher" name="submit" class="btn btn-primary mt-3">
